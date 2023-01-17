@@ -1,0 +1,21 @@
+{
+  "name": "quickbms",
+  "rules": {
+    "file": {
+      "type": "STRING",
+      "value": "test"
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
+
