@@ -1,0 +1,78 @@
+================================================================================
+simple multiline
+================================================================================
+
+/* single line */
+
+/*
+ *  multi
+ *  line
+ *
+ */
+
+---
+
+(statement_list
+	(comment)
+	(comment))
+
+================================================================================
+multi-line after statement
+================================================================================
+
+get FOO bar /* multiline
+             * comment
+             */
+
+---
+
+(statement_list
+	(get_statement
+		name: (variable)
+		type: (type)
+		(comment)))
+
+================================================================================
+simple single-lines
+================================================================================
+
+# hash style
+
+// double slash style
+
+; semicolon style
+
+---
+
+(statement_list
+	(comment)
+	(comment)
+	(comment))
+
+
+================================================================================
+single-line after statement
+================================================================================
+
+get FOO bar # hash style
+
+get FOO bar // double slash style
+
+get FOO bar ; semicolon style
+
+
+---
+
+(statement_list
+	(get_statement
+		name: (variable)
+		type: (type)
+		(comment))
+	(get_statement
+		name: (variable)
+		type: (type)
+		(comment))
+	(get_statement
+		name: (variable)
+		type: (type)
+		(comment)))
