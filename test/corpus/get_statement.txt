@@ -1,0 +1,40 @@
+================================================================================
+normal 2 arguments
+================================================================================
+
+get VERSION_STRING string
+
+---
+
+(statement_list
+	(get_statement
+		name: (variable)
+		type: (type)))
+
+================================================================================
+with variable file_number
+================================================================================
+
+get NAME string MEMORY_FILE
+
+---
+
+(statement_list
+	(get_statement
+		name: (variable)
+		type: (type)
+		file_number: (variable)))
+
+================================================================================
+with number constant file_number
+================================================================================
+
+get TMP asize 1
+
+---
+
+(statement_list
+	(get_statement
+		name: (variable)
+		type: (type)
+		file_number: (variable)))
