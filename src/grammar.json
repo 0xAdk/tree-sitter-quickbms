@@ -25,6 +25,10 @@
         }
       ]
     },
+    "type": {
+      "type": "PATTERN",
+      "value": "[a-zA-z0-9?-]+"
+    },
     "comment": {
       "type": "TOKEN",
       "content": {
@@ -89,6 +93,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "get_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "if_statement"
         }
       ]
@@ -142,6 +150,56 @@
         {
           "type": "SYMBOL",
           "name": "variable"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statment_end"
+        }
+      ]
+    },
+    "get_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[gG][eE][tT]"
+          },
+          "named": false,
+          "value": "get"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "variable"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "type",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "file_number",
+              "content": {
+                "type": "SYMBOL",
+                "name": "variable"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",

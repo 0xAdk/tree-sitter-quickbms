@@ -11,6 +11,7 @@ module.exports = grammar({
 		// TODO: split out $.number, $.string, and $.text into their own rules
 		// TODO: add string escaping
 		variable: $ => choice(/"[^"]*"/, /'.'/,  /\S+/),
+		type: _ => /[a-zA-z0-9?-]+/,
 
 		// based on https://github.com/tree-sitter/tree-sitter-javascript/blob/7a29d06274b7cf87d643212a433d970b73969016/grammar.js#L947
 		comment: $ => token(choice(
@@ -26,6 +27,8 @@ module.exports = grammar({
 			$._empty_statment,
 
 			$.version_statement,
+
+			$.get_statement,
 
 			$.if_statement,
 		),
@@ -44,6 +47,14 @@ module.exports = grammar({
 		version_statement: $ => seq(
 			case_insensitive('quickbmsver'),
 			$.variable,
+			$._statment_end,
+		),
+
+		get_statement: $ => seq(
+			case_insensitive('get'),
+			field('name', $.variable),
+			field('type', $.type),
+			optional(field('file_number', $.variable)),
 			$._statment_end,
 		),
 
