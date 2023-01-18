@@ -208,6 +208,10 @@
     "named": false
   },
   {
+    "type": "0",
+    "named": false
+  },
+  {
     "type": ";",
     "named": false
   },
@@ -397,6 +401,10 @@
   },
   {
     "type": "strstr",
+    "named": false
+  },
+  {
+    "type": "u",
     "named": false
   },
   {
