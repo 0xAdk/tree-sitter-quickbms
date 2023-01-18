@@ -1,7 +1,7 @@
 module.exports = grammar({
 	name: 'quickbms',
 
-	extra: $ => [
+	extra: _ => [
 		/[ \t]/
 	],
 
@@ -10,11 +10,11 @@ module.exports = grammar({
 
 		// TODO: split out $.number, $.string, and $.text into their own rules
 		// TODO: add string escaping
-		variable: $ => choice(/"[^"]*"/, /'.'/,  /\S+/),
+		variable: _ => choice(/"[^"]*"/, /'.'/,  /\S+/),
 		type: _ => /[a-zA-z0-9?-]+/,
 
 		// based on https://github.com/tree-sitter/tree-sitter-javascript/blob/7a29d06274b7cf87d643212a433d970b73969016/grammar.js#L947
-		comment: $ => token(choice(
+		comment: _ => token(choice(
 			seq(choice('#', '//', ';'), /.*/),
 			seq(
 				'/*',
