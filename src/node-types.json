@@ -172,6 +172,11 @@
     }
   },
   {
+    "type": "variable",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "\n",
     "named": false
   },
@@ -406,10 +411,6 @@
   {
     "type": "u",
     "named": false
-  },
-  {
-    "type": "variable",
-    "named": true
   },
   {
     "type": "xor",

@@ -9,8 +9,21 @@
       }
     },
     "variable": {
-      "type": "PATTERN",
-      "value": "\\S+"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\"[^\"]*\""
+        },
+        {
+          "type": "PATTERN",
+          "value": "'.'"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\S+"
+        }
+      ]
     },
     "comment": {
       "type": "TOKEN",

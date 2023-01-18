@@ -9,7 +9,8 @@ module.exports = grammar({
 		statement_list: $ => repeat1($._statement),
 
 		// TODO: split out $.number, $.string, and $.text into their own rules
-		variable: $ => /\S+/,
+		// TODO: add string escaping
+		variable: $ => choice(/"[^"]*"/, /'.'/,  /\S+/),
 
 		// based on https://github.com/tree-sitter/tree-sitter-javascript/blob/7a29d06274b7cf87d643212a433d970b73969016/grammar.js#L947
 		comment: $ => token(choice(
