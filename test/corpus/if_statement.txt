@@ -1,0 +1,97 @@
+================================================================================
+no consequence
+================================================================================
+
+if foo == "bar"
+endif
+
+---
+
+(statement_list
+	(if_statement
+		condition: (binary_expression
+			(binary_comparison
+				left: (variable)
+				right: (variable)))))
+
+================================================================================
+no consequence with elif and else
+================================================================================
+
+if foo == "bar"
+elif 1 == 2
+else
+endif
+
+---
+
+(statement_list
+	(if_statement
+		condition: (binary_expression
+			(binary_comparison
+				left: (variable)
+				right: (variable)))
+		alternative: (elif_statement
+			condition: (binary_expression
+				(binary_comparison
+					left: (variable)
+					right: (variable))))
+		alternative: (else_statement)))
+
+================================================================================
+with consequence
+================================================================================
+
+if foo == "bar"
+	get CHUNK long
+endif
+
+---
+
+(statement_list
+	(if_statement
+		condition: (binary_expression
+			(binary_comparison
+				left: (variable)
+				right: (variable)))
+		consequence: (statement_list
+			(get_statement
+				name: (variable)
+				type: (type)))))
+
+================================================================================
+with consequence with elif and else
+================================================================================
+
+if foo == "bar"
+	get CHUNK long
+elif 1 == 2
+	get CHUNK short
+else
+	# error
+endif
+
+---
+
+(statement_list
+	(if_statement
+		condition: (binary_expression
+			(binary_comparison
+				left: (variable)
+				right: (variable)))
+		consequence: (statement_list
+			(get_statement
+				name: (variable)
+				type: (type)))
+		alternative: (elif_statement
+			condition: (binary_expression
+				(binary_comparison
+					left: (variable)
+					right: (variable)))
+			consequence: (statement_list
+				(get_statement
+					name: (variable)
+					type: (type))))
+		alternative: (else_statement
+			consequence: (statement_list
+				(comment)))))
