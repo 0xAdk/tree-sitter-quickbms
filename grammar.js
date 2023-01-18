@@ -25,6 +25,8 @@ module.exports = grammar({
 		_statement: $ => choice(
 			$._empty_statment,
 
+			$.version_statement,
+
 			$.if_statement,
 		),
 
@@ -37,6 +39,13 @@ module.exports = grammar({
 		),
 
 		_empty_statment: $ => $._statment_end,
+
+		// TODO: split out variable into version and arguments fields
+		version_statement: $ => seq(
+			case_insensitive('quickbmsver'),
+			$.variable,
+			$._statment_end,
+		),
 
 		if_statement: $ => seq(
 			case_insensitive('if'),

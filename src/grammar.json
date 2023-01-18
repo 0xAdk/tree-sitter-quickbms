@@ -85,6 +85,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "version_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "if_statement"
         }
       ]
@@ -122,6 +126,28 @@
     "_empty_statment": {
       "type": "SYMBOL",
       "name": "_statment_end"
+    },
+    "version_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[qQ][uU][iI][cC][kK][bB][mM][sS][vV][eE][rR]"
+          },
+          "named": false,
+          "value": "quickbmsver"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "variable"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statment_end"
+        }
+      ]
     },
     "if_statement": {
       "type": "SEQ",

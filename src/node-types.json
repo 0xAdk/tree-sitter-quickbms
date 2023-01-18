@@ -167,6 +167,10 @@
         {
           "type": "if_statement",
           "named": true
+        },
+        {
+          "type": "version_statement",
+          "named": true
         }
       ]
     }
@@ -175,6 +179,25 @@
     "type": "variable",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "version_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "\n",
@@ -362,6 +385,10 @@
   },
   {
     "type": "or",
+    "named": false
+  },
+  {
+    "type": "quickbmsver",
     "named": false
   },
   {
