@@ -199,6 +199,32 @@
     }
   },
   {
+    "type": "print_statement",
+    "named": true,
+    "fields": {
+      "message": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "statement_list",
     "named": true,
     "fields": {},
@@ -216,6 +242,10 @@
         },
         {
           "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "print_statement",
           "named": true
         },
         {
@@ -439,6 +469,10 @@
   },
   {
     "type": "or",
+    "named": false
+  },
+  {
+    "type": "print",
     "named": false
   },
   {

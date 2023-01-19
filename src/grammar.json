@@ -98,6 +98,10 @@
         {
           "type": "SYMBOL",
           "name": "if_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "print_statement"
         }
       ]
     },
@@ -843,6 +847,32 @@
               }
             ]
           }
+        }
+      ]
+    },
+    "print_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[pP][rR][iI][nN][tT]"
+          },
+          "named": false,
+          "value": "print"
+        },
+        {
+          "type": "FIELD",
+          "name": "message",
+          "content": {
+            "type": "SYMBOL",
+            "name": "variable"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statment_end"
         }
       ]
     }

@@ -31,6 +31,8 @@ module.exports = grammar({
 			$.get_statement,
 
 			$.if_statement,
+
+			$.print_statement,
 		),
 
 		_statment_end: $ => seq(
@@ -132,6 +134,13 @@ module.exports = grammar({
 				choice('&&', '||', 'and', 'or'),
 				$.binary_comparison,
 			)),
+		),
+
+		print_statement: $ => seq(
+			case_insensitive('print'),
+			// TODO: this should be a cstring with special %VAR% syntax
+			field('message', $.variable),
+			$._statment_end,
 		),
 	}
 })
