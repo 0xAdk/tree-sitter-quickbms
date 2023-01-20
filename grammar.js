@@ -28,6 +28,8 @@ module.exports = grammar({
 
 			$.version_statement,
 
+			$.math_statement,
+
 			$.get_statement,
 			$.set_statement,
 
@@ -51,6 +53,14 @@ module.exports = grammar({
 		version_statement: $ => seq(
 			case_insensitive('quickbmsver'),
 			$.variable,
+			$._statment_end,
+		),
+
+		math_statement: $ => seq(
+			case_insensitive('math'),
+			field('left', $.variable),
+			field('op', $.variable),
+			field('right', $.variable),
 			$._statment_end,
 		),
 

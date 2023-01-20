@@ -93,6 +93,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "math_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "get_statement"
         },
         {
@@ -162,6 +166,48 @@
         {
           "type": "SYMBOL",
           "name": "variable"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statment_end"
+        }
+      ]
+    },
+    "math_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[mM][aA][tT][hH]"
+          },
+          "named": false,
+          "value": "math"
+        },
+        {
+          "type": "FIELD",
+          "name": "left",
+          "content": {
+            "type": "SYMBOL",
+            "name": "variable"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "op",
+          "content": {
+            "type": "SYMBOL",
+            "name": "variable"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "right",
+          "content": {
+            "type": "SYMBOL",
+            "name": "variable"
+          }
         },
         {
           "type": "SYMBOL",
