@@ -31,6 +31,7 @@ module.exports = grammar({
 			$.get_statement,
 			$.set_statement,
 
+			$.goto_statement,
 			$.if_statement,
 
 			$.print_statement,
@@ -69,6 +70,21 @@ module.exports = grammar({
 			//       since (value: $.variable) always is a valid token
 			optional(field('type', $.variable)),
 			field('value', $.variable),
+			$._statment_end,
+		),
+
+		goto_statement: $ => seq(
+			case_insensitive('goto'),
+			field('offset', $.variable),
+			optional(seq(
+				field('file_number', $.variable),
+
+				optional(field('type', choice(
+					case_insensitive('SOF'), case_insensitive('SEEK_SET'),
+					case_insensitive('SEEK_CUR'),
+					case_insensitive('EOF'), case_insensitive('SEEK_END'),
+				)))
+			)),
 			$._statment_end,
 		),
 

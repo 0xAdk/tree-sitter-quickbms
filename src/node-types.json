@@ -149,6 +149,68 @@
     }
   },
   {
+    "type": "goto_statement",
+    "named": true,
+    "fields": {
+      "file_number": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "offset": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "EOF",
+            "named": false
+          },
+          {
+            "type": "SEEK_CUR",
+            "named": false
+          },
+          {
+            "type": "SEEK_END",
+            "named": false
+          },
+          {
+            "type": "SEEK_SET",
+            "named": false
+          },
+          {
+            "type": "SOF",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "if_statement",
     "named": true,
     "fields": {
@@ -287,6 +349,10 @@
           "named": true
         },
         {
+          "type": "goto_statement",
+          "named": true
+        },
+        {
           "type": "if_statement",
           "named": true
         },
@@ -414,6 +480,26 @@
     "named": false
   },
   {
+    "type": "EOF",
+    "named": false
+  },
+  {
+    "type": "SEEK_CUR",
+    "named": false
+  },
+  {
+    "type": "SEEK_END",
+    "named": false
+  },
+  {
+    "type": "SEEK_SET",
+    "named": false
+  },
+  {
+    "type": "SOF",
+    "named": false
+  },
+  {
     "type": "^",
     "named": false
   },
@@ -487,6 +573,10 @@
   },
   {
     "type": "get",
+    "named": false
+  },
+  {
+    "type": "goto",
     "named": false
   },
   {
