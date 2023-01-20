@@ -225,6 +225,52 @@
     }
   },
   {
+    "type": "set_statement",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "statement_list",
     "named": true,
     "fields": {},
@@ -246,6 +292,10 @@
         },
         {
           "type": "print_statement",
+          "named": true
+        },
+        {
+          "type": "set_statement",
           "named": true
         },
         {
@@ -477,6 +527,10 @@
   },
   {
     "type": "quickbmsver",
+    "named": false
+  },
+  {
+    "type": "set",
     "named": false
   },
   {

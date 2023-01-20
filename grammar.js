@@ -29,6 +29,7 @@ module.exports = grammar({
 			$.version_statement,
 
 			$.get_statement,
+			$.set_statement,
 
 			$.if_statement,
 
@@ -57,6 +58,17 @@ module.exports = grammar({
 			field('name', $.variable),
 			field('type', $.type),
 			optional(field('file_number', $.variable)),
+			$._statment_end,
+		),
+
+		set_statement: $ => seq(
+			case_insensitive('set'),
+			field('name', $.variable),
+			// TODO: this should be $.type instead of $.variable, but that
+			//       causes issues where optional(type: $.type) is always skipped
+			//       since (value: $.variable) always is a valid token
+			optional(field('type', $.variable)),
+			field('value', $.variable),
 			$._statment_end,
 		),
 
