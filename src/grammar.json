@@ -979,8 +979,12 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "_binary_op"
+          "type": "FIELD",
+          "name": "op",
+          "content": {
+            "type": "SYMBOL",
+            "name": "binary_op"
+          }
         },
         {
           "type": "FIELD",
@@ -992,7 +996,7 @@
         }
       ]
     },
-    "_binary_op": {
+    "binary_op": {
       "type": "SEQ",
       "members": [
         {

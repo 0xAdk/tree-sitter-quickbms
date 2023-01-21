@@ -12,6 +12,7 @@ endif
 		condition: (binary_expression
 			(binary_comparison
 				left: (variable)
+				op: (binary_op)
 				right: (variable)))))
 
 ================================================================================
@@ -30,11 +31,13 @@ endif
 		condition: (binary_expression
 			(binary_comparison
 				left: (variable)
+				op: (binary_op)
 				right: (variable)))
 		alternative: (elif_statement
 			condition: (binary_expression
 				(binary_comparison
 					left: (variable)
+					op: (binary_op)
 					right: (variable))))
 		alternative: (else_statement)))
 
@@ -53,6 +56,7 @@ endif
 		condition: (binary_expression
 			(binary_comparison
 				left: (variable)
+				op: (binary_op)
 				right: (variable)))
 		consequence: (statement_list
 			(get_statement
@@ -78,6 +82,7 @@ endif
 		condition: (binary_expression
 			(binary_comparison
 				left: (variable)
+				op: (binary_op)
 				right: (variable)))
 		consequence: (statement_list
 			(get_statement
@@ -87,6 +92,7 @@ endif
 			condition: (binary_expression
 				(binary_comparison
 					left: (variable)
+					op: (binary_op)
 					right: (variable)))
 			consequence: (statement_list
 				(get_statement

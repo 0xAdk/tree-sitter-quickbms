@@ -13,6 +13,16 @@
           }
         ]
       },
+      "op": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "binary_op",
+            "named": true
+          }
+        ]
+      },
       "right": {
         "multiple": false,
         "required": true,
@@ -39,6 +49,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "binary_op",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "break_statement",

@@ -198,12 +198,12 @@ module.exports = grammar({
 
 		binary_comparison: $ => seq(
 			field('left', $._comparison_value),
-			$._binary_op,
+			field('op', $.binary_op),
 			field('right', $._comparison_value),
 		),
 
 		// based on check_condition function in cmd.c
-		_binary_op: $ => seq(
+		binary_op: _ => seq(
 			optional('u'),
 			optional('0'),
 			choice(
