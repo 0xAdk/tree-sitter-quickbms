@@ -97,6 +97,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "save_pos_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "set_statement"
         },
         {
@@ -285,6 +289,48 @@
             {
               "type": "FIELD",
               "name": "file_number",
+              "content": {
+                "type": "SYMBOL",
+                "name": "variable"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_end"
+        }
+      ]
+    },
+    "save_pos_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[sS][aA][vV][eE][pP][oO][sS]"
+          },
+          "named": false,
+          "value": "savepos"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "variable"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "file_num",
               "content": {
                 "type": "SYMBOL",
                 "name": "variable"

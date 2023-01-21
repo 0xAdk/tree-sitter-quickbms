@@ -30,6 +30,7 @@ module.exports = grammar({
 			$.math_statement,
 
 			$.get_statement,
+			$.save_pos_statement,
 			$.set_statement,
 			$._put_statements,
 
@@ -80,6 +81,13 @@ module.exports = grammar({
 			field('name', $.variable),
 			field('type', $.variable),
 			optional(field('file_number', $.variable)),
+			$._statement_end,
+		),
+
+		save_pos_statement: $ => seq(
+			case_insensitive('savepos'),
+			field('name', $.variable),
+			optional(field('file_num', $.variable)),
 			$._statement_end,
 		),
 

@@ -1138,6 +1138,42 @@
     }
   },
   {
+    "type": "save_pos_statement",
+    "named": true,
+    "fields": {
+      "file_num": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "set_statement",
     "named": true,
     "fields": {
@@ -1305,6 +1341,10 @@
         },
         {
           "type": "s_log_statement",
+          "named": true
+        },
+        {
+          "type": "save_pos_statement",
           "named": true
         },
         {
@@ -1636,6 +1676,10 @@
   },
   {
     "type": "quickbmsver",
+    "named": false
+  },
+  {
+    "type": "savepos",
     "named": false
   },
   {
