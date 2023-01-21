@@ -36,6 +36,11 @@ module.exports = grammar({
 			$.goto_statement,
 			$.if_statement,
 
+			$.for_statement,
+			$.label_statement,
+			$.break_statement,
+			$.continue_statement,
+
 			$.print_statement,
 		),
 
@@ -228,6 +233,67 @@ module.exports = grammar({
 				choice('&&', '||', 'and', 'or'),
 				$.binary_comparison,
 			)),
+		),
+
+		op_value: $ => seq(
+			field('op', $.variable),
+			field('value', $.variable),
+		),
+
+		next_statement: $ => seq(
+			case_insensitive('next'),
+			optional(seq(
+				field('name', $.variable),
+				optional(field('update', $.op_value)),
+			)),
+			$._statement_end,
+		),
+
+		prev_statement: $ => seq(
+			case_insensitive('prev'),
+			optional(seq(
+				field('name', $.variable),
+				optional(field('update', $.op_value)),
+			)),
+			$._statement_end,
+		),
+
+		for_statement: $ => seq(
+			case_insensitive('for'),
+			optional(seq(
+				field('name', $.variable),
+
+				optional(seq(
+					field('initializer', $.op_value),
+					optional(field('condition', $.op_value)),
+				)),
+			)),
+			$._statement_end,
+
+			optional(field('body', $.statement_list)),
+
+			choice(
+				$.next_statement,
+				$.prev_statement,
+			),
+		),
+
+		label_statement: $ => seq(
+			case_insensitive('label'),
+			field('name', $.variable),
+			$._statement_end,
+		),
+
+		break_statement: $ => seq(
+			case_insensitive('break'),
+			optional(field('name', $.variable)),
+			$._statement_end,
+		),
+
+		continue_statement: $ => seq(
+			case_insensitive('continue'),
+			optional(field('name', $.variable)),
+			$._statement_end,
 		),
 
 		print_statement: $ => seq(
