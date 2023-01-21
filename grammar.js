@@ -42,6 +42,9 @@ module.exports = grammar({
 			$.continue_statement,
 
 			$.print_statement,
+			$.log_statement,
+			$.clog_statement,
+			$.s_log_statement,
 		),
 
 		_statement_end: $ => seq(
@@ -300,6 +303,46 @@ module.exports = grammar({
 			case_insensitive('print'),
 			// TODO: this should be a cstring with special %VAR% syntax
 			field('message', $.variable),
+			$._statement_end,
+		),
+
+		log_statement: $ => seq(
+			case_insensitive('log'),
+			field('name', $.variable),
+			field('offset', $.variable),
+			field('size', $.variable),
+			optional(seq(
+				field('file_number', $.variable),
+				optional(field('encrypted_size', $.variable)),
+			)),
+			$._statement_end,
+		),
+
+		clog_statement: $ => seq(
+			case_insensitive('clog'),
+			field('name', $.variable),
+			field('offset', $.variable),
+			field('compressed_size', $.variable),
+			field('size', $.variable),
+			optional(seq(
+				field('file_number', $.variable),
+				optional(field('encrypted_size', $.variable)),
+			)),
+			$._statement_end,
+		),
+
+		s_log_statement: $ => seq(
+			case_insensitive('slog'),
+			field('name', $.variable),
+			field('offset', $.variable),
+			field('size', $.variable),
+			optional(seq(
+				field('type', $.variable),
+				optional(seq(
+					field('file_number', $.variable),
+					optional(field('id', $.variable)),
+				)),
+			)),
 			$._statement_end,
 		),
 	}

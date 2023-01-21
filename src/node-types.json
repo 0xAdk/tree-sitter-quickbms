@@ -67,6 +67,82 @@
     }
   },
   {
+    "type": "clog_statement",
+    "named": true,
+    "fields": {
+      "compressed_size": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "encrypted_size": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "file_number": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "offset": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "size": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "continue_statement",
     "named": true,
     "fields": {
@@ -381,6 +457,72 @@
     "named": true,
     "fields": {
       "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "log_statement",
+    "named": true,
+    "fields": {
+      "encrypted_size": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "file_number": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "offset": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "size": {
         "multiple": false,
         "required": true,
         "types": [
@@ -859,6 +1001,82 @@
     }
   },
   {
+    "type": "s_log_statement",
+    "named": true,
+    "fields": {
+      "file_number": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "id": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "offset": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "size": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "set_statement",
     "named": true,
     "fields": {
@@ -917,6 +1135,10 @@
           "named": true
         },
         {
+          "type": "clog_statement",
+          "named": true
+        },
+        {
           "type": "comment",
           "named": true
         },
@@ -942,6 +1164,10 @@
         },
         {
           "type": "label_statement",
+          "named": true
+        },
+        {
+          "type": "log_statement",
           "named": true
         },
         {
@@ -974,6 +1200,10 @@
         },
         {
           "type": "put_var_chr_statement",
+          "named": true
+        },
+        {
+          "type": "s_log_statement",
           "named": true
         },
         {
@@ -1144,6 +1374,10 @@
     "named": false
   },
   {
+    "type": "clog",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
   },
@@ -1217,6 +1451,10 @@
   },
   {
     "type": "label",
+    "named": false
+  },
+  {
+    "type": "log",
     "named": false
   },
   {
@@ -1297,6 +1535,10 @@
   },
   {
     "type": "shr",
+    "named": false
+  },
+  {
+    "type": "slog",
     "named": false
   },
   {
