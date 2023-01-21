@@ -23,7 +23,7 @@ module.exports = grammar({
 		)),
 
 		_statement: $ => choice(
-			$._empty_statment,
+			$._empty_statement,
 
 			$.version_statement,
 
@@ -39,7 +39,7 @@ module.exports = grammar({
 			$.print_statement,
 		),
 
-		_statment_end: $ => seq(
+		_statement_end: $ => seq(
 			optional(choice(
 				';',
 				$.comment,
@@ -47,13 +47,13 @@ module.exports = grammar({
 			'\n'
 		),
 
-		_empty_statment: $ => $._statment_end,
+		_empty_statement: $ => $._statement_end,
 
 		// TODO: split out variable into version and arguments fields
 		version_statement: $ => seq(
 			case_insensitive('quickbmsver'),
 			$.variable,
-			$._statment_end,
+			$._statement_end,
 		),
 
 		math_statement: $ => seq(
@@ -61,7 +61,7 @@ module.exports = grammar({
 			field('left', $.variable),
 			field('op', $.variable),
 			field('right', $.variable),
-			$._statment_end,
+			$._statement_end,
 		),
 
 		get_statement: $ => seq(
@@ -69,7 +69,7 @@ module.exports = grammar({
 			field('name', $.variable),
 			field('type', $.variable),
 			optional(field('file_number', $.variable)),
-			$._statment_end,
+			$._statement_end,
 		),
 
 		set_statement: $ => seq(
@@ -77,7 +77,7 @@ module.exports = grammar({
 			field('name', $.variable),
 			optional(field('type', $.variable)),
 			field('value', $.variable),
-			$._statment_end,
+			$._statement_end,
 		),
 
 		put_var_chr_statement: $ => seq(
@@ -86,7 +86,7 @@ module.exports = grammar({
 			field('offset', $.variable),
 			field('name', $.variable),
 			optional(field('type', $.variable)),
-			$._statment_end,
+			$._statement_end,
 		),
 
 		put_array_statement: $ => seq(
@@ -94,7 +94,7 @@ module.exports = grammar({
 			field('array', $.variable),
 			field('index', $.variable),
 			repeat1(field('name', $.variable)),
-			$._statment_end,
+			$._statement_end,
 		),
 
 		put_statement: $ => seq(
@@ -102,7 +102,7 @@ module.exports = grammar({
 			field('name', $.variable),
 			field('type', $.variable),
 			optional(field('file_number', $.variable)),
-			$._statment_end,
+			$._statement_end,
 		),
 
 		put_d_string_statement: $ => seq(
@@ -110,7 +110,7 @@ module.exports = grammar({
 			field('name', $.variable),
 			field('length', $.variable),
 			optional(field('file_number', $.variable)),
-			$._statment_end,
+			$._statement_end,
 		),
 
 		put_c_t_statement: $ => seq(
@@ -119,7 +119,7 @@ module.exports = grammar({
 			field('type', $.variable),
 			field('char', $.variable),
 			optional(field('file_number', $.variable)),
-			$._statment_end,
+			$._statement_end,
 		),
 
 		put_bits_statement: $ => seq(
@@ -127,7 +127,7 @@ module.exports = grammar({
 			field('name', $.variable),
 			field('bits', $.variable),
 			optional(field('file_number', $.variable)),
-			$._statment_end,
+			$._statement_end,
 		),
 
 		_put_statements: $ => choice(
@@ -151,13 +151,13 @@ module.exports = grammar({
 					case_insensitive('EOF'), case_insensitive('SEEK_END'),
 				)))
 			)),
-			$._statment_end,
+			$._statement_end,
 		),
 
 		if_statement: $ => seq(
 			case_insensitive('if'),
 			field('condition', $.binary_expression),
-			$._statment_end,
+			$._statement_end,
 
 			optional(field('consequence', $.statement_list)),
 
@@ -165,19 +165,19 @@ module.exports = grammar({
 			optional(field('alternative', $.else_statement)),
 
 			case_insensitive('endif'),
-			$._statment_end,
+			$._statement_end,
 		),
 
 		elif_statement: $ => seq(
 			case_insensitive('elif'),
 			field('condition', $.binary_expression),
-			$._statment_end,
+			$._statement_end,
 
 			optional(field('consequence', $.statement_list)),
 		),
 
 		else_statement: $ => seq(
-			case_insensitive('else'), $._statment_end,
+			case_insensitive('else'), $._statement_end,
 			optional(field('consequence', $.statement_list)),
 		),
 
@@ -234,7 +234,7 @@ module.exports = grammar({
 			case_insensitive('print'),
 			// TODO: this should be a cstring with special %VAR% syntax
 			field('message', $.variable),
-			$._statment_end,
+			$._statement_end,
 		),
 	}
 })
