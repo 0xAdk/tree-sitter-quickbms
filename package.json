@@ -16,6 +16,14 @@
     "tree-sitter-cli": "^0.20.7"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+    "test": "tree-sitter test"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.bms",
+      "file-types": [
+        "bms"
+      ]
+	}
+  ]
 }
