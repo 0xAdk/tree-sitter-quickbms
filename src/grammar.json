@@ -25,10 +25,6 @@
         }
       ]
     },
-    "type": {
-      "type": "PATTERN",
-      "value": "[a-zA-z0-9?-]+"
-    },
     "comment": {
       "type": "TOKEN",
       "content": {
@@ -244,7 +240,7 @@
           "name": "type",
           "content": {
             "type": "SYMBOL",
-            "name": "type"
+            "name": "variable"
           }
         },
         {

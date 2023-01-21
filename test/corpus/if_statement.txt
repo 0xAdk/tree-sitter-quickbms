@@ -57,7 +57,7 @@ endif
 		consequence: (statement_list
 			(get_statement
 				name: (variable)
-				type: (type)))))
+				type: (variable)))))
 
 ================================================================================
 with consequence with elif and else
@@ -82,7 +82,7 @@ endif
 		consequence: (statement_list
 			(get_statement
 				name: (variable)
-				type: (type)))
+				type: (variable)))
 		alternative: (elif_statement
 			condition: (binary_expression
 				(binary_comparison
@@ -91,7 +91,7 @@ endif
 			consequence: (statement_list
 				(get_statement
 					name: (variable)
-					type: (type))))
+					type: (variable))))
 		alternative: (else_statement
 			consequence: (statement_list
 				(comment)))))

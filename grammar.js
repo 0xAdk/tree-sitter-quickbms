@@ -11,7 +11,6 @@ module.exports = grammar({
 		// TODO: split out $.number, $.string, and $.text into their own rules
 		// TODO: add string escaping
 		variable: _ => choice(/"[^"]*"/, /'.'/,  /\S+/),
-		type: _ => /[a-zA-z0-9?-]+/,
 
 		// based on https://github.com/tree-sitter/tree-sitter-javascript/blob/7a29d06274b7cf87d643212a433d970b73969016/grammar.js#L947
 		comment: _ => token(choice(
@@ -68,7 +67,7 @@ module.exports = grammar({
 		get_statement: $ => seq(
 			case_insensitive('get'),
 			field('name', $.variable),
-			field('type', $.type),
+			field('type', $.variable),
 			optional(field('file_number', $.variable)),
 			$._statment_end,
 		),
@@ -76,9 +75,6 @@ module.exports = grammar({
 		set_statement: $ => seq(
 			case_insensitive('set'),
 			field('name', $.variable),
-			// TODO: this should be $.type instead of $.variable, but that
-			//       causes issues where optional(type: $.type) is always skipped
-			//       since (value: $.variable) always is a valid token
 			optional(field('type', $.variable)),
 			field('value', $.variable),
 			$._statment_end,

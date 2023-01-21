@@ -29,7 +29,7 @@ get FOO bar /* multiline
 (statement_list
 	(get_statement
 		name: (variable)
-		type: (type)
+		type: (variable)
 		(comment)))
 
 ================================================================================
@@ -66,13 +66,13 @@ get FOO bar ; semicolon style
 (statement_list
 	(get_statement
 		name: (variable)
-		type: (type)
+		type: (variable)
 		(comment))
 	(get_statement
 		name: (variable)
-		type: (type)
+		type: (variable)
 		(comment))
 	(get_statement
 		name: (variable)
-		type: (type)
+		type: (variable)
 		(comment)))
