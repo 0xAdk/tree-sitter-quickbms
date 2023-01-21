@@ -36,6 +36,9 @@ module.exports = grammar({
 			$.goto_statement,
 			$.if_statement,
 
+			$.call_function_statement,
+			$.start_function_statement,
+
 			$.for_statement,
 			$.label_statement,
 			$.break_statement,
@@ -241,6 +244,27 @@ module.exports = grammar({
 		op_value: $ => seq(
 			field('op', $.variable),
 			field('value', $.variable),
+		),
+
+		call_function_statement: $ => seq(
+			case_insensitive('callfunction'),
+			field('name', $.variable),
+			optional(seq(
+				field('save_variables', $.variable),
+				optional(repeat(field('argument', $.variable))),
+			)),
+			$._statement_end,
+		),
+
+		start_function_statement: $ => seq(
+			case_insensitive('startfunction'),
+			field('name', $.variable),
+			$._statement_end,
+
+			optional(field('body', $.statement_list)),
+
+			case_insensitive('endfunction'),
+			$._statement_end,
 		),
 
 		next_statement: $ => seq(

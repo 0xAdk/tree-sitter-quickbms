@@ -67,6 +67,52 @@
     }
   },
   {
+    "type": "call_function_statement",
+    "named": true,
+    "fields": {
+      "argument": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "save_variables": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "clog_statement",
     "named": true,
     "fields": {
@@ -1123,6 +1169,42 @@
     }
   },
   {
+    "type": "start_function_statement",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "statement_list",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "statement_list",
     "named": true,
     "fields": {},
@@ -1132,6 +1214,10 @@
       "types": [
         {
           "type": "break_statement",
+          "named": true
+        },
+        {
+          "type": "call_function_statement",
           "named": true
         },
         {
@@ -1208,6 +1294,10 @@
         },
         {
           "type": "set_statement",
+          "named": true
+        },
+        {
+          "type": "start_function_statement",
           "named": true
         },
         {
@@ -1374,6 +1464,10 @@
     "named": false
   },
   {
+    "type": "callfunction",
+    "named": false
+  },
+  {
     "type": "clog",
     "named": false
   },
@@ -1403,6 +1497,10 @@
   },
   {
     "type": "else",
+    "named": false
+  },
+  {
+    "type": "endfunction",
     "named": false
   },
   {
@@ -1539,6 +1637,10 @@
   },
   {
     "type": "slog",
+    "named": false
+  },
+  {
+    "type": "startfunction",
     "named": false
   },
   {
