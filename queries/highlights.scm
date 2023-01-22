@@ -1,9 +1,15 @@
 [
 	"math"
 
-	"get"
 	"set"
 	"savepos"
+
+	"getvarchr"
+	"getarray"
+	"get"
+	"getdstring"
+	"getct"
+	"getbits"
 
 	"putvarchr"
 	"putarray"

@@ -29,9 +29,10 @@ module.exports = grammar({
 
 			$.math_statement,
 
-			$.get_statement,
 			$.save_pos_statement,
 			$.set_statement,
+
+			$._get_statements,
 			$._put_statements,
 
 			$.goto_statement,
@@ -76,6 +77,25 @@ module.exports = grammar({
 			$._statement_end,
 		),
 
+		get_var_chr_statement: $ => seq(
+			case_insensitive('getvarchr'),
+			field('name', $.variable),
+			field('file_number', $.variable),
+			field('offset', $.variable),
+			optional(field('type', $.variable)),
+			$._statement_end,
+		),
+
+		get_array_statement: $ => seq(
+			case_insensitive('getarray'),
+			// FIXME: this should be repeat1
+			// repeat1(field('name', $.variable)),
+			field('name', $.variable),
+			field('index', $.variable),
+			field('array', $.variable),
+			$._statement_end,
+		),
+
 		get_statement: $ => seq(
 			case_insensitive('get'),
 			field('name', $.variable),
@@ -83,6 +103,41 @@ module.exports = grammar({
 			optional(field('file_number', $.variable)),
 			$._statement_end,
 		),
+
+		get_d_string_statement: $ => seq(
+			case_insensitive('getdstring'),
+			field('name', $.variable),
+			field('length', $.variable),
+			optional(field('file_number', $.variable)),
+			$._statement_end,
+		),
+
+		get_c_t_statement: $ => seq(
+			case_insensitive('getct'),
+			field('name', $.variable),
+			field('type', $.variable),
+			field('delimiter', $.variable),
+			optional(field('file_number', $.variable)),
+			$._statement_end,
+		),
+
+		get_bits_statement: $ => seq(
+			case_insensitive('getbits'),
+			field('name', $.variable),
+			field('bits', $.variable),
+			optional(field('file_number', $.variable)),
+			$._statement_end,
+		),
+
+		_get_statements: $ => choice(
+			$.get_var_chr_statement,
+			$.get_array_statement,
+			$.get_statement,
+			$.get_d_string_statement,
+			$.get_c_t_statement,
+			$.get_bits_statement,
+		),
+
 
 		save_pos_statement: $ => seq(
 			case_insensitive('savepos'),
