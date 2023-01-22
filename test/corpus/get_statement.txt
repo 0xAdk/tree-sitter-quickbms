@@ -8,8 +8,8 @@ get VERSION_STRING string
 
 (statement_list
 	(get_statement
-		name: (variable)
-		type: (variable)))
+		name: (identifier)
+		type: (identifier)))
 
 ================================================================================
 with variable file_number
@@ -21,9 +21,9 @@ get NAME string MEMORY_FILE
 
 (statement_list
 	(get_statement
-		name: (variable)
-		type: (variable)
-		file_number: (variable)))
+		name: (identifier)
+		type: (identifier)
+		file_number: (identifier)))
 
 ================================================================================
 with number constant file_number
@@ -35,6 +35,6 @@ get TMP asize 1
 
 (statement_list
 	(get_statement
-		name: (variable)
-		type: (variable)
-		file_number: (variable)))
+		name: (identifier)
+		type: (identifier)
+		file_number: (number)))

@@ -8,9 +8,49 @@ module.exports = grammar({
 	rules: {
 		statement_list: $ => repeat1($._statement),
 
-		// TODO: split out $.number, $.string, and $.text into their own rules
-		// TODO: add string escaping
-		variable: _ => choice(/"[^"]*"/, /'.'/,  /\S+/),
+		number: _ => token(seq(
+			optional('-'),
+			token.immediate(/\d\S*/),
+		)),
+
+		// taken from https://github.com/tree-sitter/tree-sitter-c/blob/7175a6dd5fc1cee660dce6fe23f6043d75af424a/grammar.js#L964
+		escape_sequence: _ => token(prec(1, seq(
+			'\\',
+			choice(
+				/[^xuU]/,
+				/\d{2,3}/,
+				/x[0-9a-fA-F]{2,}/,
+				/u[0-9a-fA-F]{4}/,
+				/U[0-9a-fA-F]{8}/
+			),
+		))),
+
+		string: $ => seq(
+			'"',
+			repeat(choice(
+				token.immediate(prec(1, /[^"\\]+/)),
+				$.escape_sequence,
+			)),
+			'"'
+		),
+
+		character: $ => seq(
+			'\'',
+			choice(
+				token.immediate(/[^\n'\\]/),
+				$.escape_sequence,
+			),
+			'\''
+		),
+
+		identifier: _ => /[^'"\d\s]\S*/,
+
+		_variable: $ => choice(
+			$.number,
+			$.string,
+			$.character,
+			$.identifier,
+		),
 
 		// based on https://github.com/tree-sitter/tree-sitter-javascript/blob/7a29d06274b7cf87d643212a433d970b73969016/grammar.js#L947
 		comment: _ => token(choice(
@@ -65,67 +105,67 @@ module.exports = grammar({
 		// TODO: split out variable into version and arguments fields
 		version_statement: $ => seq(
 			case_insensitive('quickbmsver'),
-			$.variable,
+			$._variable,
 			$._statement_end,
 		),
 
 		math_statement: $ => seq(
 			case_insensitive('math'),
-			field('left', $.variable),
-			field('op', $.variable),
-			field('right', $.variable),
+			field('left', $._variable),
+			field('op', $._variable),
+			field('right', $._variable),
 			$._statement_end,
 		),
 
 		get_var_chr_statement: $ => seq(
 			case_insensitive('getvarchr'),
-			field('name', $.variable),
-			field('file_number', $.variable),
-			field('offset', $.variable),
-			optional(field('type', $.variable)),
+			field('name', $._variable),
+			field('file_number', $._variable),
+			field('offset', $._variable),
+			optional(field('type', $._variable)),
 			$._statement_end,
 		),
 
 		get_array_statement: $ => seq(
 			case_insensitive('getarray'),
 			// FIXME: this should be repeat1
-			// repeat1(field('name', $.variable)),
-			field('name', $.variable),
-			field('index', $.variable),
-			field('array', $.variable),
+			// repeat1(field('name', $._variable)),
+			field('name', $._variable),
+			field('index', $._variable),
+			field('array', $._variable),
 			$._statement_end,
 		),
 
 		get_statement: $ => seq(
 			case_insensitive('get'),
-			field('name', $.variable),
-			field('type', $.variable),
-			optional(field('file_number', $.variable)),
+			field('name', $._variable),
+			field('type', $._variable),
+			optional(field('file_number', $._variable)),
 			$._statement_end,
 		),
 
 		get_d_string_statement: $ => seq(
 			case_insensitive('getdstring'),
-			field('name', $.variable),
-			field('length', $.variable),
-			optional(field('file_number', $.variable)),
+			field('name', $._variable),
+			field('length', $._variable),
+			optional(field('file_number', $._variable)),
 			$._statement_end,
 		),
 
 		get_c_t_statement: $ => seq(
 			case_insensitive('getct'),
-			field('name', $.variable),
-			field('type', $.variable),
-			field('delimiter', $.variable),
-			optional(field('file_number', $.variable)),
+			field('name', $._variable),
+			field('type', $._variable),
+			field('delimiter', $._variable),
+			optional(field('file_number', $._variable)),
 			$._statement_end,
 		),
 
 		get_bits_statement: $ => seq(
 			case_insensitive('getbits'),
-			field('name', $.variable),
-			field('bits', $.variable),
-			optional(field('file_number', $.variable)),
+			field('name', $._variable),
+			field('bits', $._variable),
+			optional(field('file_number', $._variable)),
 			$._statement_end,
 		),
 
@@ -141,69 +181,69 @@ module.exports = grammar({
 
 		save_pos_statement: $ => seq(
 			case_insensitive('savepos'),
-			field('name', $.variable),
-			optional(field('file_num', $.variable)),
+			field('name', $._variable),
+			optional(field('file_num', $._variable)),
 			$._statement_end,
 		),
 
 		set_statement: $ => seq(
 			case_insensitive('set'),
-			field('name', $.variable),
+			field('name', $._variable),
 			optional(choice(
-				field('op', alias('=', $.variable)),
-				field('type', $.variable)
+				field('op', alias('=', $._variable)),
+				field('type', $._variable)
 			)),
-			field('value', $.variable),
+			field('value', $._variable),
 			$._statement_end,
 		),
 
 		put_var_chr_statement: $ => seq(
 			case_insensitive('putvarchr'),
-			field('name', $.variable),
-			field('offset', $.variable),
-			field('name', $.variable),
-			optional(field('type', $.variable)),
+			field('name', $._variable),
+			field('offset', $._variable),
+			field('name', $._variable),
+			optional(field('type', $._variable)),
 			$._statement_end,
 		),
 
 		put_array_statement: $ => seq(
 			case_insensitive('putarray'),
-			field('array', $.variable),
-			field('index', $.variable),
-			repeat1(field('name', $.variable)),
+			field('array', $._variable),
+			field('index', $._variable),
+			repeat1(field('name', $._variable)),
 			$._statement_end,
 		),
 
 		put_statement: $ => seq(
 			case_insensitive('put'),
-			field('name', $.variable),
-			field('type', $.variable),
-			optional(field('file_number', $.variable)),
+			field('name', $._variable),
+			field('type', $._variable),
+			optional(field('file_number', $._variable)),
 			$._statement_end,
 		),
 
 		put_d_string_statement: $ => seq(
 			case_insensitive('putdstring'),
-			field('name', $.variable),
-			field('length', $.variable),
-			optional(field('file_number', $.variable)),
+			field('name', $._variable),
+			field('length', $._variable),
+			optional(field('file_number', $._variable)),
 			$._statement_end,
 		),
 
 		put_c_t_statement: $ => seq(
 			case_insensitive('putct'),
-			field('name', $.variable),
-			field('type', $.variable),
-			field('char', $.variable),
-			optional(field('file_number', $.variable)),
+			field('name', $._variable),
+			field('type', $._variable),
+			field('char', $._variable),
+			optional(field('file_number', $._variable)),
 			$._statement_end,
 		),
 
 		put_bits_statement: $ => seq(
 			case_insensitive('putbits'),
-			field('name', $.variable),
-			field('bits', $.variable),
-			optional(field('file_number', $.variable)),
+			field('name', $._variable),
+			field('bits', $._variable),
+			optional(field('file_number', $._variable)),
 			$._statement_end,
 		),
 
@@ -218,9 +258,9 @@ module.exports = grammar({
 
 		goto_statement: $ => seq(
 			case_insensitive('goto'),
-			field('offset', $.variable),
+			field('offset', $._variable),
 			optional(seq(
-				field('file_number', $.variable),
+				field('file_number', $._variable),
 
 				optional(field('type', choice(
 					case_insensitive('SOF'), case_insensitive('SEEK_SET'),
@@ -259,7 +299,7 @@ module.exports = grammar({
 		),
 
 		_comparison_value: $ => choice(
-			$.variable,
+			$._variable,
 		),
 
 		binary_comparison: $ => seq(
@@ -308,23 +348,23 @@ module.exports = grammar({
 		),
 
 		op_value: $ => seq(
-			field('op', $.variable),
-			field('value', $.variable),
+			field('op', $._variable),
+			field('value', $._variable),
 		),
 
 		call_function_statement: $ => seq(
 			case_insensitive('callfunction'),
-			field('name', $.variable),
+			field('name', $._variable),
 			optional(seq(
-				field('save_variables', $.variable),
-				optional(repeat(field('argument', $.variable))),
+				field('save_variables', $._variable),
+				optional(repeat(field('argument', $._variable))),
 			)),
 			$._statement_end,
 		),
 
 		start_function_statement: $ => seq(
 			case_insensitive('startfunction'),
-			field('name', $.variable),
+			field('name', $._variable),
 			$._statement_end,
 
 			optional(field('body', $.statement_list)),
@@ -336,7 +376,7 @@ module.exports = grammar({
 		next_statement: $ => seq(
 			case_insensitive('next'),
 			optional(seq(
-				field('name', $.variable),
+				field('name', $._variable),
 				optional(field('update', $.op_value)),
 			)),
 			$._statement_end,
@@ -345,7 +385,7 @@ module.exports = grammar({
 		prev_statement: $ => seq(
 			case_insensitive('prev'),
 			optional(seq(
-				field('name', $.variable),
+				field('name', $._variable),
 				optional(field('update', $.op_value)),
 			)),
 			$._statement_end,
@@ -354,7 +394,7 @@ module.exports = grammar({
 		for_statement: $ => seq(
 			case_insensitive('for'),
 			optional(seq(
-				field('name', $.variable),
+				field('name', $._variable),
 
 				optional(seq(
 					field('initializer', $.op_value),
@@ -373,64 +413,64 @@ module.exports = grammar({
 
 		label_statement: $ => seq(
 			case_insensitive('label'),
-			field('name', $.variable),
+			field('name', $._variable),
 			$._statement_end,
 		),
 
 		break_statement: $ => seq(
 			case_insensitive('break'),
-			optional(field('name', $.variable)),
+			optional(field('name', $._variable)),
 			$._statement_end,
 		),
 
 		continue_statement: $ => seq(
 			case_insensitive('continue'),
-			optional(field('name', $.variable)),
+			optional(field('name', $._variable)),
 			$._statement_end,
 		),
 
 		print_statement: $ => seq(
 			case_insensitive('print'),
 			// TODO: this should be a cstring with special %VAR% syntax
-			field('message', $.variable),
+			field('message', $._variable),
 			$._statement_end,
 		),
 
 		log_statement: $ => seq(
 			case_insensitive('log'),
-			field('name', $.variable),
-			field('offset', $.variable),
-			field('size', $.variable),
+			field('name', $._variable),
+			field('offset', $._variable),
+			field('size', $._variable),
 			optional(seq(
-				field('file_number', $.variable),
-				optional(field('encrypted_size', $.variable)),
+				field('file_number', $._variable),
+				optional(field('encrypted_size', $._variable)),
 			)),
 			$._statement_end,
 		),
 
 		clog_statement: $ => seq(
 			case_insensitive('clog'),
-			field('name', $.variable),
-			field('offset', $.variable),
-			field('compressed_size', $.variable),
-			field('size', $.variable),
+			field('name', $._variable),
+			field('offset', $._variable),
+			field('compressed_size', $._variable),
+			field('size', $._variable),
 			optional(seq(
-				field('file_number', $.variable),
-				optional(field('encrypted_size', $.variable)),
+				field('file_number', $._variable),
+				optional(field('encrypted_size', $._variable)),
 			)),
 			$._statement_end,
 		),
 
 		s_log_statement: $ => seq(
 			case_insensitive('slog'),
-			field('name', $.variable),
-			field('offset', $.variable),
-			field('size', $.variable),
+			field('name', $._variable),
+			field('offset', $._variable),
+			field('size', $._variable),
 			optional(seq(
-				field('type', $.variable),
+				field('type', $._variable),
 				optional(seq(
-					field('file_number', $.variable),
-					optional(field('id', $.variable)),
+					field('file_number', $._variable),
+					optional(field('id', $._variable)),
 				)),
 			)),
 			$._statement_end,

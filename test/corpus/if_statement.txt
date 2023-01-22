@@ -11,9 +11,9 @@ endif
 	(if_statement
 		condition: (binary_expression
 			(binary_comparison
-				left: (variable)
+				left: (identifier)
 				op: (binary_op)
-				right: (variable)))))
+				right: (string)))))
 
 ================================================================================
 no consequence with elif and else
@@ -30,15 +30,15 @@ endif
 	(if_statement
 		condition: (binary_expression
 			(binary_comparison
-				left: (variable)
+				left: (identifier)
 				op: (binary_op)
-				right: (variable)))
+				right: (string)))
 		alternative: (elif_statement
 			condition: (binary_expression
 				(binary_comparison
-					left: (variable)
+					left: (number)
 					op: (binary_op)
-					right: (variable))))
+					right: (number))))
 		alternative: (else_statement)))
 
 ================================================================================
@@ -55,13 +55,13 @@ endif
 	(if_statement
 		condition: (binary_expression
 			(binary_comparison
-				left: (variable)
+				left: (identifier)
 				op: (binary_op)
-				right: (variable)))
+				right: (string)))
 		consequence: (statement_list
 			(get_statement
-				name: (variable)
-				type: (variable)))))
+				name: (identifier)
+				type: (identifier)))))
 
 ================================================================================
 with consequence with elif and else
@@ -81,23 +81,23 @@ endif
 	(if_statement
 		condition: (binary_expression
 			(binary_comparison
-				left: (variable)
+				left: (identifier)
 				op: (binary_op)
-				right: (variable)))
+				right: (string)))
 		consequence: (statement_list
 			(get_statement
-				name: (variable)
-				type: (variable)))
+				name: (identifier)
+				type: (identifier)))
 		alternative: (elif_statement
 			condition: (binary_expression
 				(binary_comparison
-					left: (variable)
+					left: (number)
 					op: (binary_op)
-					right: (variable)))
+					right: (number)))
 			consequence: (statement_list
 				(get_statement
-					name: (variable)
-					type: (variable))))
+					name: (identifier)
+					type: (identifier))))
 		alternative: (else_statement
 			consequence: (statement_list
 				(comment)))))

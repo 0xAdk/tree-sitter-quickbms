@@ -8,7 +8,7 @@ goto FILE_OFFSET
 
 (statement_list
 	(goto_statement
-		offset: (variable)))
+		offset: (identifier)))
 
 ================================================================================
 with offset and file number
@@ -20,8 +20,8 @@ goto NAME_OFF MEMORY_FILE
 
 (statement_list
 	(goto_statement
-		offset: (variable)
-		file_number: (variable)))
+		offset: (identifier)
+		file_number: (identifier)))
 
 ================================================================================
 with type
@@ -33,5 +33,5 @@ goto -4 0 SEEK_CUR
 
 (statement_list
 	(goto_statement
-		offset: (variable)
-		file_number: (variable)))
+		offset: (number)
+		file_number: (number)))

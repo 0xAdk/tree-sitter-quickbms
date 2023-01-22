@@ -42,4 +42,10 @@
 (call_function_statement name: _ @function)
 (start_function_statement name: _ @function)
 
+(number) @number
+
+(escape_sequence) @string.escape
+(string) @string
+(character) @character
+
 (comment) @comment

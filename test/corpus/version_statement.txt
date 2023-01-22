@@ -8,7 +8,7 @@ quickbmsver 0.4.6
 
 (statement_list
  (version_statement
-	(variable)))
+	(number)))
 
 ================================================================================
 string version
@@ -20,7 +20,7 @@ quickbmsver "0.4.6"
 
 (statement_list
  (version_statement
-	(variable)))
+	(string)))
 
 ================================================================================
 string version with parameters
@@ -32,7 +32,7 @@ quickbmsver "0.4.6 -b 0x00 -64 -P -9"
 
 (statement_list
  (version_statement
-	(variable)))
+	(string)))
 
 ================================================================================
 just parameters
@@ -44,5 +44,5 @@ quickbmsver "-b 0x00 -64 -P -9"
 
 (statement_list
  (version_statement
-	(variable)))
+	(string)))
 	
