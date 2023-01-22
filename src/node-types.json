@@ -1,5 +1,43 @@
 [
   {
+    "type": "append_statement",
+    "named": true,
+    "fields": {
+      "direction": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "binary_comparison",
     "named": true,
     "fields": {
@@ -2705,6 +2743,10 @@
       "required": false,
       "types": [
         {
+          "type": "append_statement",
+          "named": true
+        },
+        {
           "type": "break_statement",
           "named": true
         },
@@ -3019,6 +3061,10 @@
   },
   {
     "type": "and",
+    "named": false
+  },
+  {
+    "type": "append",
     "named": false
   },
   {

@@ -302,6 +302,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "append_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "log_statement"
         },
         {
@@ -2650,6 +2654,40 @@
             "type": "SYMBOL",
             "name": "_variable"
           }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_end"
+        }
+      ]
+    },
+    "append_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[aA][pP][pP][eE][nN][dD]"
+          },
+          "named": false,
+          "value": "append"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "direction",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_variable"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",

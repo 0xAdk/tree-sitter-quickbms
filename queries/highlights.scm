@@ -62,6 +62,8 @@
 	"endfunction"
 
 	"print"
+
+	"append"
 	"log"
 	"clog"
 	"slog"
@@ -112,7 +114,6 @@
 	; "Strlen"
 	; "Debug"
 	; "Padding"
-	; "Append"
 	; "Encryption"
 	; "CRCHash"
 	; "MessageBox"

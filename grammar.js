@@ -92,6 +92,8 @@ module.exports = grammar({
 			$.continue_statement,
 
 			$.print_statement,
+
+			$.append_statement,
 			$.log_statement,
 			$.clog_statement,
 			$.s_log_statement,
@@ -474,6 +476,12 @@ module.exports = grammar({
 			case_insensitive('print'),
 			// TODO: this should be a cstring with special %VAR% syntax
 			field('message', $._variable),
+			$._statement_end,
+		),
+
+		append_statement: $ => seq(
+			case_insensitive('append'),
+			optional(field('direction', $._variable)),
 			$._statement_end,
 		),
 
