@@ -16,6 +16,11 @@
 
 	"endian"
 
+	"idstring"
+	"id"
+	"memcmp"
+	"strcmp"
+
 	"getvarchr"
 	"getarray"
 	"get"
@@ -74,10 +79,6 @@
 	; "fread"
 	; "fwrite"
 	; "fseek"
-	; "IDString"
-	; "ID"
-	; "memcmp"
-	; "strcmp"
 	; "ImpType"
 	; "ExtractFile"
 	; "NameCRC"

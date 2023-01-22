@@ -78,6 +78,7 @@ module.exports = grammar({
 			$.set_statement,
 
 			$.endian_statement,
+			$._magic_check_statements,
 			$._get_statements,
 			$._put_statements,
 
@@ -144,6 +145,41 @@ module.exports = grammar({
 			field('type', $._variable),
 			optional(field('name', $._variable)),
 			$._statement_end,
+		),
+
+		id_string_statement: $ => seq(
+			case_insensitive('idstring'),
+			optional(field('file_number', $._variable)),
+			field('magic', $._variable),
+			$._statement_end,
+		),
+
+		id_statement: $ => seq(
+			case_insensitive('id'),
+			optional(field('file_number', $._variable)),
+			field('magic', $._variable),
+			$._statement_end,
+		),
+
+		memcmp_statement: $ => seq(
+			case_insensitive('memcmp'),
+			optional(field('file_number', $._variable)),
+			field('magic', $._variable),
+			$._statement_end,
+		),
+
+		strcmp_statement: $ => seq(
+			case_insensitive('strcmp'),
+			optional(field('file_number', $._variable)),
+			field('magic', $._variable),
+			$._statement_end,
+		),
+
+		_magic_check_statements: $ => choice(
+			$.id_string_statement,
+			$.id_statement,
+			$.memcmp_statement,
+			$.strcmp_statement,
 		),
 
 		get_var_chr_statement: $ => seq(

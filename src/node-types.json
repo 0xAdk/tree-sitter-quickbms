@@ -1402,6 +1402,114 @@
     }
   },
   {
+    "type": "id_statement",
+    "named": true,
+    "fields": {
+      "file_number": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "magic": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "id_string_statement",
+    "named": true,
+    "fields": {
+      "file_number": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "magic": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "if_statement",
     "named": true,
     "fields": {
@@ -1694,6 +1802,54 @@
             "type": "number",
             "named": true
           },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "memcmp_statement",
+    "named": true,
+    "fields": {
+      "file_number": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "magic": {
+        "multiple": false,
+        "required": true,
+        "types": [
           {
             "type": "string",
             "named": true
@@ -2939,6 +3095,14 @@
           "named": true
         },
         {
+          "type": "id_statement",
+          "named": true
+        },
+        {
+          "type": "id_string_statement",
+          "named": true
+        },
+        {
           "type": "if_statement",
           "named": true
         },
@@ -2956,6 +3120,10 @@
         },
         {
           "type": "math_statement",
+          "named": true
+        },
+        {
+          "type": "memcmp_statement",
           "named": true
         },
         {
@@ -3007,7 +3175,59 @@
           "named": true
         },
         {
+          "type": "strcmp_statement",
+          "named": true
+        },
+        {
           "type": "version_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "strcmp_statement",
+    "named": true,
+    "fields": {
+      "file_number": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "magic": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
           "named": true
         }
       ]
@@ -3340,8 +3560,16 @@
     "named": false
   },
   {
+    "type": "id",
+    "named": false
+  },
+  {
     "type": "identifier",
     "named": true
+  },
+  {
+    "type": "idstring",
+    "named": false
   },
   {
     "type": "if",
@@ -3365,6 +3593,10 @@
   },
   {
     "type": "math",
+    "named": false
+  },
+  {
+    "type": "memcmp",
     "named": false
   },
   {
