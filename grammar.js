@@ -149,7 +149,10 @@ module.exports = grammar({
 		set_statement: $ => seq(
 			case_insensitive('set'),
 			field('name', $.variable),
-			optional(field('type', $.variable)),
+			optional(choice(
+				field('op', alias('=', $.variable)),
+				field('type', $.variable)
+			)),
 			field('value', $.variable),
 			$._statement_end,
 		),

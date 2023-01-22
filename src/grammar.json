@@ -93,15 +93,15 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_get_statements"
-        },
-        {
-          "type": "SYMBOL",
           "name": "save_pos_statement"
         },
         {
           "type": "SYMBOL",
           "name": "set_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_get_statements"
         },
         {
           "type": "SYMBOL",
@@ -658,12 +658,30 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "FIELD",
-              "name": "type",
-              "content": {
-                "type": "SYMBOL",
-                "name": "variable"
-              }
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "op",
+                  "content": {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "STRING",
+                      "value": "="
+                    },
+                    "named": true,
+                    "value": "variable"
+                  }
+                },
+                {
+                  "type": "FIELD",
+                  "name": "type",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "variable"
+                  }
+                }
+              ]
             },
             {
               "type": "BLANK"

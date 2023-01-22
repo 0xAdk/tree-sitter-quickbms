@@ -1437,6 +1437,16 @@
           }
         ]
       },
+      "op": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
       "type": {
         "multiple": false,
         "required": false,
