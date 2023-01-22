@@ -230,6 +230,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "exit_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "math_statement"
         },
         {
@@ -347,6 +351,47 @@
         {
           "type": "SYMBOL",
           "name": "_variable"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_end"
+        }
+      ]
+    },
+    "exit_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "[cC][lL][eE][aA][nN][eE][xX][iI][tT]"
+              },
+              "named": false,
+              "value": "cleanexit"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "[eE][xX][iI][tT]"
+              },
+              "named": false,
+              "value": "exit"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "[eE][xX][iI][tT][iI][fF][nN][oO][fF][iI][lL][eE][sS][oO][pP][eE][nN]"
+              },
+              "named": false,
+              "value": "exitifnofilesopen"
+            }
+          ]
         },
         {
           "type": "SYMBOL",

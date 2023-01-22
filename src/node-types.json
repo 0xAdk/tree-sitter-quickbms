@@ -463,6 +463,21 @@
     }
   },
   {
+    "type": "exit_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "for_statement",
     "named": true,
     "fields": {
@@ -2531,6 +2546,10 @@
           "named": true
         },
         {
+          "type": "exit_statement",
+          "named": true
+        },
+        {
           "type": "for_statement",
           "named": true
         },
@@ -2824,6 +2843,10 @@
     "named": false
   },
   {
+    "type": "cleanexit",
+    "named": false
+  },
+  {
     "type": "clog",
     "named": false
   },
@@ -2870,6 +2893,14 @@
   {
     "type": "escape_sequence",
     "named": true
+  },
+  {
+    "type": "exit",
+    "named": false
+  },
+  {
+    "type": "exitifnofilesopen",
+    "named": false
   },
   {
     "type": "ext",

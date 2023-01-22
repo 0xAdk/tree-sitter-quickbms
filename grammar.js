@@ -66,6 +66,7 @@ module.exports = grammar({
 			$._empty_statement,
 
 			$.version_statement,
+			$.exit_statement,
 
 			$.math_statement,
 
@@ -106,6 +107,15 @@ module.exports = grammar({
 		version_statement: $ => seq(
 			case_insensitive('quickbmsver'),
 			$._variable,
+			$._statement_end,
+		),
+
+		exit_statement: $ => seq(
+			choice(
+				case_insensitive('cleanexit'),
+				case_insensitive('exit'),
+				case_insensitive('exitifnofilesopen'),
+			),
 			$._statement_end,
 		),
 
