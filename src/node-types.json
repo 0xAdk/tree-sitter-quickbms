@@ -704,6 +704,88 @@
     }
   },
   {
+    "type": "file_xor_statement",
+    "named": true,
+    "fields": {
+      "bytes": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "file_number": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "offset": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "for_statement",
     "named": true,
     "fields": {
@@ -1432,6 +1514,18 @@
         "required": true,
         "types": [
           {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
             "type": "string",
             "named": true
           }
@@ -1850,6 +1944,18 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
           {
             "type": "string",
             "named": true
@@ -3063,6 +3169,10 @@
           "named": true
         },
         {
+          "type": "file_xor_statement",
+          "named": true
+        },
+        {
           "type": "for_statement",
           "named": true
         },
@@ -3215,6 +3325,18 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
           {
             "type": "string",
             "named": true
@@ -3521,6 +3643,10 @@
   },
   {
     "type": "filepath",
+    "named": false
+  },
+  {
+    "type": "filexor",
     "named": false
   },
   {

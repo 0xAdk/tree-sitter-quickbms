@@ -9,6 +9,7 @@
 	; "XMath"
 
 	"open"
+	"filexor"
 	"calldll"
 
 	"set"
@@ -111,7 +112,6 @@
 	; "StrCReplace"
 	; "StrEResizeC"
 	; "SeperateHeader"
-	; "FileXOR"
 	; "FileCrypt"
 	; "Strlen"
 	; "Debug"

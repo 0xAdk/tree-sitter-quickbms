@@ -72,6 +72,7 @@ module.exports = grammar({
 			$.math_statement,
 
 			$.open_statement,
+			$.file_xor_statement,
 			$.call_dll_statement,
 
 			$.save_pos_statement,
@@ -256,6 +257,16 @@ module.exports = grammar({
 					)),
 				),
 			),
+			$._statement_end,
+		),
+
+		file_xor_statement: $ => seq(
+			case_insensitive('filexor'),
+			field('bytes', $._variable),
+			optional(seq(
+				field('offset', $._variable),
+				optional(field('file_number', $._variable)),
+			)),
 			$._statement_end,
 		),
 
