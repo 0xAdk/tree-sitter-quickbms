@@ -7,8 +7,12 @@
 
 	"math"
 
+	"open"
+
 	"set"
 	"savepos"
+
+	"endian"
 
 	"getvarchr"
 	"getarray"

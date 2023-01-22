@@ -70,9 +70,12 @@ module.exports = grammar({
 
 			$.math_statement,
 
+			$.open_statement,
+
 			$.save_pos_statement,
 			$.set_statement,
 
+			$.endian_statement,
 			$._get_statements,
 			$._put_statements,
 
@@ -124,6 +127,13 @@ module.exports = grammar({
 			field('left', $._variable),
 			field('op', $._variable),
 			field('right', $._variable),
+			$._statement_end,
+		),
+
+		endian_statement: $ => seq(
+			case_insensitive('endian'),
+			field('type', $._variable),
+			optional(field('name', $._variable)),
 			$._statement_end,
 		),
 
@@ -188,6 +198,21 @@ module.exports = grammar({
 			$.get_bits_statement,
 		),
 
+		open_statement: $ => seq(
+			case_insensitive('open'),
+			choice(
+				field('file_number', $._variable),
+				seq(
+					field('folder', $._variable),
+					field('name', $._variable),
+					optional(seq(
+						field('file_number', $._variable),
+						optional(field('exists', $._variable)),
+					)),
+				),
+			),
+			$._statement_end,
+		),
 
 		save_pos_statement: $ => seq(
 			case_insensitive('savepos'),
