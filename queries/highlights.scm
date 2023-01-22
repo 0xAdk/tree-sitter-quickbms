@@ -9,6 +9,7 @@
 	; "XMath"
 
 	"open"
+	"calldll"
 
 	"set"
 	"savepos"
@@ -120,7 +121,6 @@
 	; "SortArray"
 	; "SearchArray"
 	; "ScanDir"
-	; "CallDLL"
 	; "include"
 	; "Game"
 	; "NOP"

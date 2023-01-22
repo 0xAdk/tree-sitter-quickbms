@@ -72,6 +72,7 @@ module.exports = grammar({
 			$.math_statement,
 
 			$.open_statement,
+			$.call_dll_statement,
 
 			$.save_pos_statement,
 			$.set_statement,
@@ -219,6 +220,19 @@ module.exports = grammar({
 					)),
 				),
 			),
+			$._statement_end,
+		),
+
+		call_dll_statement: $ => seq(
+			case_insensitive('calldll'),
+			field('file', $._variable),
+			choice(
+				field('offset', $.number),
+				field('function', choice($.string, $.identifier)),
+			),
+			field('calling_convention', $._variable),
+			field('return', $._variable),
+			repeat(field('argument', $._variable)),
 			$._statement_end,
 		),
 
