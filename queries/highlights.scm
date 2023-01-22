@@ -1,4 +1,10 @@
 [
+	"quickbmsver"
+
+	"cleanexit"
+	"exit"
+	"exitifnofilesopen"
+
 	"math"
 
 	"set"
