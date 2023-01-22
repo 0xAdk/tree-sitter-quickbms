@@ -37,6 +37,10 @@
 
 	"for"
 	"next"
+	"prev"
+
+	"continue"
+	"break"
 
 	"callfunction"
 	"startfunction"
@@ -44,6 +48,9 @@
 
 	"print"
 	"log"
+	"clog"
+	"slog"
+
 ] @keyword
 
 (_ type: _ @type.builtin)
