@@ -64,6 +64,7 @@ module.exports = grammar({
 
 		_statement: $ => choice(
 			$._empty_statement,
+			$.ignored,
 
 			$.version_statement,
 			$.exit_statement,
@@ -105,6 +106,11 @@ module.exports = grammar({
 		),
 
 		_empty_statement: $ => $._statement_end,
+
+		ignored: $ => choice(
+			seq('<', case_insensitive('bms'), /[^\n]*/, $._statement_end),
+			seq('</', case_insensitive('bms'), '>', $._statement_end),
+		),
 
 		// TODO: split out variable into version and arguments fields
 		version_statement: $ => seq(

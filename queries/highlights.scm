@@ -168,4 +168,6 @@
 (string) @string
 (character) @character
 
+[ ";" ] @punctuation.delimiter
+(ignored) @comment
 (comment) @comment

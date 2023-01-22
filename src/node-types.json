@@ -1286,6 +1286,21 @@
     }
   },
   {
+    "type": "ignored",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "label_statement",
     "named": true,
     "fields": {
@@ -2754,6 +2769,10 @@
           "named": true
         },
         {
+          "type": "ignored",
+          "named": true
+        },
+        {
           "type": "label_statement",
           "named": true
         },
@@ -2923,6 +2942,10 @@
     "named": false
   },
   {
+    "type": "</",
+    "named": false
+  },
+  {
     "type": "<<",
     "named": false
   },
@@ -3004,6 +3027,10 @@
   },
   {
     "type": "below",
+    "named": false
+  },
+  {
+    "type": "bms",
     "named": false
   },
   {
