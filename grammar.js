@@ -1,3 +1,66 @@
+let c_types = [
+	case_insensitive('8'), case_insensitive('8bit'),
+	case_insensitive('byte'), case_insensitive('ubyte'),
+	case_insensitive('char'), case_insensitive('cchar'),
+	case_insensitive('tchar'), case_insensitive('uchar'),
+	case_insensitive('u_char'), case_insensitive('uint8_t'),
+	case_insensitive('uint8'), case_insensitive('int8_t'),
+	case_insensitive('int8'), case_insensitive('u8'),
+	case_insensitive('i8'), case_insensitive('si8'),
+	case_insensitive('ui8'), case_insensitive('ch'),
+	case_insensitive('tch'), case_insensitive('str'),
+	case_insensitive('sz'), case_insensitive('ctstr'),
+	case_insensitive('tstr'), case_insensitive('fchar'),
+	case_insensitive('boole8'), case_insensitive('string'),
+	case_insensitive('zstring'), case_insensitive('binary'),
+
+	case_insensitive('16'), case_insensitive('16bit'),
+	case_insensitive('word'), case_insensitive('short'),
+	case_insensitive('ushort'), case_insensitive('u_short'),
+	case_insensitive('uint16_t'), case_insensitive('uint16'),
+	case_insensitive('int16_t'), case_insensitive('int16'),
+	case_insensitive('u16'), case_insensitive('i16'),
+	case_insensitive('si16'), case_insensitive('ui16'),
+	case_insensitive('fixed8'), case_insensitive('wchar'),
+	case_insensitive('wchar_t'), case_insensitive('wch'),
+	case_insensitive('wstr'), case_insensitive('fshort'),
+	case_insensitive('char16'), case_insensitive('string16'),
+	case_insensitive('boole16'), case_insensitive('zstring16'),
+
+	case_insensitive('32'), case_insensitive('32bit'),
+	case_insensitive('dword'), case_insensitive('unsigned'),
+	case_insensitive('int'), case_insensitive('uint'),
+	case_insensitive('u_int'), case_insensitive('long'),
+	case_insensitive('ulong'), case_insensitive('u_long'),
+	case_insensitive('uint32_t'), case_insensitive('uint32'),
+	case_insensitive('int32_t'), case_insensitive('int32'),
+	case_insensitive('u32'), case_insensitive('i32'),
+	case_insensitive('si32'), case_insensitive('ui32'),
+	case_insensitive('fixed'), case_insensitive('float16'),
+	case_insensitive('bool'), case_insensitive('boolean'),
+	case_insensitive('boole32'), case_insensitive('void'),
+	case_insensitive('handle'), case_insensitive('flong'),
+	case_insensitive('dosdatetime'), case_insensitive('unixdatetime'),
+	case_insensitive('time_t'),
+
+	case_insensitive('64'), case_insensitive('64bit'),
+	case_insensitive('longlong'), case_insensitive('ulonglong'),
+	case_insensitive('u_longlong'), case_insensitive('uint64_t'),
+	case_insensitive('uint64'), case_insensitive('int64_t'),
+	case_insensitive('int64'), case_insensitive('u64'),
+	case_insensitive('i64'), case_insensitive('si64'),
+	case_insensitive('ui64'), case_insensitive('void64'),
+	case_insensitive('filetime'), case_insensitive('oledatetime'),
+	case_insensitive('sqldatetime'), case_insensitive('javadatetime'),
+
+	case_insensitive('float'), case_insensitive('double'),
+
+	case_insensitive('encodedu32'), case_insensitive('encoded'),
+
+	case_insensitive('bits'), case_insensitive('sb'),
+	case_insensitive('ub'), case_insensitive('fb'),
+]
+
 module.exports = grammar({
 	name: 'quickbms',
 
@@ -101,6 +164,8 @@ module.exports = grammar({
 			$.log_statement,
 			$.clog_statement,
 			$.s_log_statement,
+
+			$.c_define_statement,
 		),
 
 		_statement_end: $ => seq(
@@ -595,6 +660,11 @@ module.exports = grammar({
 			)),
 			$._statement_end,
 		),
+
+		c_define_statement: $ => seq(
+			field('type', alias(choice(...c_types), $.identifier)),
+			field('name', $._variable),
+		)
 	}
 })
 
