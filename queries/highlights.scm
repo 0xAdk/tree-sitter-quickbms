@@ -6,7 +6,7 @@
 	"exitifnofilesopen"
 
 	"math"
-	; "XMath"
+	"xmath"
 
 	"open"
 	"filexor"

@@ -242,6 +242,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "xmath_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "open_statement"
         },
         {
@@ -515,6 +519,40 @@
         {
           "type": "FIELD",
           "name": "right",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_variable"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_end"
+        }
+      ]
+    },
+    "xmath_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[xX][mM][aA][tT][hH]"
+          },
+          "named": false,
+          "value": "xmath"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_variable"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "operations",
           "content": {
             "type": "SYMBOL",
             "name": "_variable"

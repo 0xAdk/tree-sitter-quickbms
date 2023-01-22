@@ -70,6 +70,7 @@ module.exports = grammar({
 			$.exit_statement,
 
 			$.math_statement,
+			$.xmath_statement,
 
 			$.open_statement,
 			$.file_xor_statement,
@@ -138,6 +139,15 @@ module.exports = grammar({
 			field('left', $._variable),
 			field('op', $._variable),
 			field('right', $._variable),
+			$._statement_end,
+		),
+
+		xmath_statement: $ => seq(
+			case_insensitive('xmath'),
+			field('name', $._variable),
+			// TODO: parse this as it's own rule since while operations looks like a
+			//       string, it really has it's own syntax
+			field('operations', $._variable),
 			$._statement_end,
 		),
 
