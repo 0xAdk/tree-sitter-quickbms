@@ -182,6 +182,7 @@ module.exports = grammar({
 			$.s_log_statement,
 
 			$.c_variable_declaration,
+			$.c_array_declaration,
 		),
 
 		_statement_end: $ => seq(
@@ -886,6 +887,25 @@ module.exports = grammar({
 		c_variable_declaration: $ => seq(
 			field('type', $._c_type),
 			field('name', alias($._c_identifier, $.identifier)),
+			optional(seq(
+				':',
+				field('bit_size', alias(/\d+/, $.number)),
+			)),
+			$._statement_end,
+		),
+
+		c_array_declaration: $ => seq(
+			field('type', $._c_type),
+			field('name', alias($._c_identifier, $.identifier)),
+			seq(
+				'[',
+				field('size', choice(
+					alias(/\d+/, $.number),
+					alias($._c_identifier, $.identifier),
+				)),
+				']',
+			),
+			$._statement_end,
 		),
 	}
 })
