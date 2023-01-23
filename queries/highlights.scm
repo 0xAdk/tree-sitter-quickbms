@@ -43,6 +43,7 @@
 	"putbits"
 
 	"goto"
+	"padding"
 
 	"if"
 	"elif"
@@ -114,7 +115,6 @@
 	; "FileCrypt"
 	; "Strlen"
 	; "Debug"
-	; "Padding"
 	; "Encryption"
 	; "CRCHash"
 	; "MessageBox"

@@ -149,6 +149,7 @@ module.exports = grammar({
 			$._put_statements,
 
 			$.goto_statement,
+			$.padding_statement,
 			$.if_statement,
 
 			$.call_function_statement,
@@ -540,6 +541,16 @@ module.exports = grammar({
 					case_insensitive('SEEK_CUR'),
 					case_insensitive('EOF'), case_insensitive('SEEK_END'),
 				)))
+			)),
+			$._statement_end,
+		),
+
+		padding_statement: $ => seq(
+			case_insensitive('padding'),
+			field('alignment', $._variable),
+			optional(seq(
+				field('file_number', $._variable),
+				optional(field('offset', $._variable)),
 			)),
 			$._statement_end,
 		),
