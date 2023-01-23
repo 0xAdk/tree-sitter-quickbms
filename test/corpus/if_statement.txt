@@ -16,7 +16,7 @@ endif
 				right: (string)))))
 
 ================================================================================
-no consequence with elif and else
+no consequence with else if and else
 ================================================================================
 
 if foo == "bar"
@@ -33,7 +33,7 @@ endif
 				left: (identifier)
 				op: (binary_op)
 				right: (string)))
-		alternative: (elif_statement
+		alternative: (else_if_statement
 			condition: (binary_expression
 				(binary_comparison
 					left: (number)
@@ -64,7 +64,7 @@ endif
 				type: (identifier)))))
 
 ================================================================================
-with consequence with elif and else
+with consequence with else if and else
 ================================================================================
 
 if foo == "bar"
@@ -88,7 +88,7 @@ endif
 			(get_statement
 				name: (identifier)
 				type: (identifier)))
-		alternative: (elif_statement
+		alternative: (else_if_statement
 			condition: (binary_expression
 				(binary_comparison
 					left: (number)

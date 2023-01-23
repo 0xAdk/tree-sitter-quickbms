@@ -2730,7 +2730,7 @@
             "name": "alternative",
             "content": {
               "type": "SYMBOL",
-              "name": "elif_statement"
+              "name": "else_if_statement"
             }
           }
         },
@@ -2765,17 +2765,54 @@
         }
       ]
     },
-    "elif_statement": {
+    "else_if_statement": {
       "type": "SEQ",
       "members": [
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "PATTERN",
-            "value": "[eE][lL][iI][fF]"
-          },
-          "named": false,
-          "value": "elif"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "[eE][lL][iI][fF]"
+              },
+              "named": false,
+              "value": "elif"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "[eE][lL][sS][eE][iI][fF]"
+              },
+              "named": false,
+              "value": "elseif"
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "[eE][lL][sS][eE]"
+                  },
+                  "named": false,
+                  "value": "else"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "[iI][fF]"
+                  },
+                  "named": false,
+                  "value": "if"
+                }
+              ]
+            }
+          ]
         },
         {
           "type": "FIELD",

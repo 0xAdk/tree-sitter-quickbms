@@ -610,15 +610,22 @@ module.exports = grammar({
 
 			optional(field('consequence', $.statement_list)),
 
-			repeat(field('alternative', $.elif_statement)),
+			repeat(field('alternative', $.else_if_statement)),
 			optional(field('alternative', $.else_statement)),
 
 			case_insensitive('endif'),
 			$._statement_end,
 		),
 
-		elif_statement: $ => seq(
-			case_insensitive('elif'),
+		else_if_statement: $ => seq(
+			choice(
+				case_insensitive('elif'),
+				case_insensitive('elseif'),
+				seq(
+					case_insensitive('else'),
+					case_insensitive('if'),
+				),
+			),
 			field('condition', $.binary_expression),
 			$._statement_end,
 

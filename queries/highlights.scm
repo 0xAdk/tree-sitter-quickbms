@@ -49,6 +49,7 @@
 
 	"if"
 	"elif"
+	"elseif"
 	"else"
 	; "ifequal"
 	; "ifgreater"

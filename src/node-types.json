@@ -816,7 +816,7 @@
     }
   },
   {
-    "type": "elif_statement",
+    "type": "else_if_statement",
     "named": true,
     "fields": {
       "condition": {
@@ -2193,7 +2193,7 @@
         "required": false,
         "types": [
           {
-            "type": "elif_statement",
+            "type": "else_if_statement",
             "named": true
           },
           {
@@ -4874,6 +4874,10 @@
   },
   {
     "type": "else",
+    "named": false
+  },
+  {
+    "type": "elseif",
     "named": false
   },
   {
