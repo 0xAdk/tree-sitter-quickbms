@@ -9,6 +9,7 @@
 	"strlen"
 	"math"
 	"xmath"
+	"findloc"
 
 	"open"
 	"filexor"
@@ -78,7 +79,6 @@
 	"clog"
 	"slog"
 
-	; "FindLoc"
 	; "FindFileID"
 	; "fread"
 	; "fwrite"

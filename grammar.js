@@ -136,6 +136,7 @@ module.exports = grammar({
 			$.strlen_statement,
 			$.math_statement,
 			$.xmath_statement,
+			$.find_loc_statement,
 
 			$.open_statement,
 			$.file_xor_statement,
@@ -317,6 +318,21 @@ module.exports = grammar({
 			// TODO: parse this as it's own rule since while operations looks like a
 			//       string, it really has it's own syntax
 			field('operations', $._variable),
+			$._statement_end,
+		),
+
+		find_loc_statement: $ => seq(
+			case_insensitive('findloc'),
+			field('name', $._variable),
+			field('type', $.identifier),
+			field('string', $._variable),
+			optional(seq(
+				field('file_number', $._variable),
+				optional(seq(
+					field('error_value', $._variable),
+					optional(field('end_offset', $._variable)),
+				)),
+			)),
 			$._statement_end,
 		),
 
