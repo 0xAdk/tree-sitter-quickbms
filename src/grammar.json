@@ -2101,43 +2101,69 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "CHOICE",
+              "type": "FIELD",
+              "name": "value",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_variable"
+              }
+            },
+            {
+              "type": "SEQ",
               "members": [
                 {
-                  "type": "FIELD",
-                  "name": "op",
-                  "content": {
-                    "type": "ALIAS",
-                    "content": {
-                      "type": "STRING",
-                      "value": "="
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "FIELD",
+                      "name": "op",
+                      "content": {
+                        "type": "ALIAS",
+                        "content": {
+                          "type": "STRING",
+                          "value": "="
+                        },
+                        "named": true,
+                        "value": "_variable"
+                      }
                     },
-                    "named": true,
-                    "value": "_variable"
-                  }
+                    {
+                      "type": "FIELD",
+                      "name": "type",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "_variable"
+                      }
+                    }
+                  ]
                 },
                 {
                   "type": "FIELD",
-                  "name": "type",
+                  "name": "value",
                   "content": {
                     "type": "SYMBOL",
                     "name": "_variable"
                   }
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "FIELD",
+                      "name": "memory_file",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "_variable"
+                      }
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
                 }
               ]
-            },
-            {
-              "type": "BLANK"
             }
           ]
-        },
-        {
-          "type": "FIELD",
-          "name": "value",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_variable"
-          }
         },
         {
           "type": "SYMBOL",

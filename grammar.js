@@ -499,11 +499,23 @@ module.exports = grammar({
 		set_statement: $ => seq(
 			case_insensitive('set'),
 			field('name', $._variable),
-			optional(choice(
-				field('op', alias('=', $._variable)),
-				field('type', $._variable)
-			)),
-			field('value', $._variable),
+			choice(
+				field('value', $._variable),
+				seq(
+					choice(
+						field('op', alias('=', $._variable)),
+						field('type', $._variable)
+					),
+					field('value', $._variable),
+
+					// this isn't mentioned anywhere, and quickbms' code doesn't make it
+					// obvious if this is correct. But the code does access a 4th
+					// argument. And one script does try to pass a MEMORY_FILE variable
+					// as a 4th argument to set. So for the sake of that one file not
+					// having an error I'm adding this.
+					optional(field('memory_file', $._variable)),
+				),
+			),
 			$._statement_end,
 		),
 
@@ -690,7 +702,7 @@ module.exports = grammar({
 			optional(field('body', $.statement_list)),
 
 			case_insensitive('endfunction'),
-			optional($._variable),
+			optional($._variable), // endfunction FUNCNAME
 			$._statement_end,
 		),
 
