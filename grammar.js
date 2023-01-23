@@ -174,6 +174,7 @@ module.exports = grammar({
 
 			$.print_statement,
 
+			$.namecrc_statement,
 			$.append_statement,
 			$.encryption_statement,
 			$.log_statement,
@@ -786,6 +787,23 @@ module.exports = grammar({
 			case_insensitive('print'),
 			// TODO: this should be a cstring with special %VAR% syntax
 			field('message', $._variable),
+			$._statement_end,
+		),
+
+		namecrc_statement: $ => seq(
+			case_insensitive('namecrc'),
+			field('name', $._variable),
+			field('crc', $._variable),
+			optional(seq(
+				field('file_list', $._variable),
+				optional(seq(
+					field('type', $._variable),
+					optional(seq(
+						field('polynomial', $._variable),
+						optional(field('parameters', $._variable)),
+					)),
+				)),
+			)),
 			$._statement_end,
 		),
 

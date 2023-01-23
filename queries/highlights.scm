@@ -73,6 +73,7 @@
 
 	"print"
 
+	"namecrc"
 	"append"
 	"encryption"
 	"log"
@@ -86,7 +87,6 @@
 	; "fseek"
 	; "ImpType"
 	; "ExtractFile"
-	; "NameCRC"
 	; "Codepage"
 	; "Add"
 	; "Inc"
