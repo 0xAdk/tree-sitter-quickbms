@@ -71,6 +71,7 @@
 
 	"append"
 	"log"
+	"comtype"
 	"clog"
 	"slog"
 
@@ -96,7 +97,6 @@
 	; "SETBYTESREAD"
 	; "String"
 	; "Case"
-	; "ComType"
 	; "ReverseShort"
 	; "FlipShort"
 	; "ReverseLong"

@@ -164,6 +164,7 @@ module.exports = grammar({
 
 			$.append_statement,
 			$.log_statement,
+			$.comtype_statement,
 			$.clog_statement,
 			$.s_log_statement,
 
@@ -665,6 +666,16 @@ module.exports = grammar({
 			optional(seq(
 				field('file_number', $._variable),
 				optional(field('encrypted_size', $._variable)),
+			)),
+			$._statement_end,
+		),
+
+		comtype_statement: $ => seq(
+			case_insensitive('comtype'),
+			field('algorithm', $._variable),
+			optional(seq(
+				field('dictionary', $._variable),
+				optional(field('dictionary_length', $._variable)),
 			)),
 			$._statement_end,
 		),

@@ -334,6 +334,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "comtype_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "clog_statement"
         },
         {
@@ -3302,6 +3306,69 @@
                     {
                       "type": "FIELD",
                       "name": "encrypted_size",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "_variable"
+                      }
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_end"
+        }
+      ]
+    },
+    "comtype_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[cC][oO][mM][tT][yY][pP][eE]"
+          },
+          "named": false,
+          "value": "comtype"
+        },
+        {
+          "type": "FIELD",
+          "name": "algorithm",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_variable"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "dictionary",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_variable"
+                  }
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "FIELD",
+                      "name": "dictionary_length",
                       "content": {
                         "type": "SYMBOL",
                         "name": "_variable"

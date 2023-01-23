@@ -991,6 +991,88 @@
     }
   },
   {
+    "type": "comtype_statement",
+    "named": true,
+    "fields": {
+      "algorithm": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "dictionary": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "dictionary_length": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "continue_statement",
     "named": true,
     "fields": {
@@ -3751,6 +3833,10 @@
           "named": true
         },
         {
+          "type": "comtype_statement",
+          "named": true
+        },
+        {
           "type": "continue_statement",
           "named": true
         },
@@ -4351,6 +4437,10 @@
   },
   {
     "type": "complement",
+    "named": false
+  },
+  {
+    "type": "comtype",
     "named": false
   },
   {
