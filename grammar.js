@@ -167,6 +167,7 @@ module.exports = grammar({
 			$.print_statement,
 
 			$.append_statement,
+			$.encryption_statement,
 			$.log_statement,
 			$.comtype_statement,
 			$.clog_statement,
@@ -782,6 +783,29 @@ module.exports = grammar({
 		append_statement: $ => seq(
 			case_insensitive('append'),
 			optional(field('direction', $._variable)),
+			$._statement_end,
+		),
+
+		encryption_statement: $ => seq(
+			case_insensitive('encryption'),
+			field('algorithm', $._variable),
+			choice(
+				field('memory_file', alias(
+					token(prec(1, seq(
+						'MEMORY_FILE',
+						token.immediate(/\S*/),
+					))),
+					$.identifier
+				)),
+				field('key', $._variable),
+			),
+			optional(seq(
+				field('ivec', $._variable),
+				optional(seq(
+					field('mode', $._variable),
+					optional(field('key_length', $._variable)),
+				)),
+			)),
 			$._statement_end,
 		),
 

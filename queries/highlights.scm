@@ -74,6 +74,7 @@
 	"print"
 
 	"append"
+	"encryption"
 	"log"
 	"comtype"
 	"clog"
@@ -115,7 +116,6 @@
 	; "SeperateHeader"
 	; "FileCrypt"
 	; "Debug"
-	; "Encryption"
 	; "CRCHash"
 	; "MessageBox"
 	; "SortArray"
