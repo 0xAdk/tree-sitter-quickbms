@@ -4360,7 +4360,19 @@
         "required": true,
         "types": [
           {
+            "type": "character",
+            "named": true
+          },
+          {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
             "named": true
           }
         ]

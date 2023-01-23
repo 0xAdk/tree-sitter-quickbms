@@ -161,12 +161,11 @@
 (c_type) @type
 (c_type_qualifier) @type.qualifier
 
+(number) @number
 (_ op: _ @operator)
 
 (call_function_statement name: _ @function)
 (start_function_statement name: _ @function)
-
-(number) @number
 
 (escape_sequence) @string.escape
 (string) @string

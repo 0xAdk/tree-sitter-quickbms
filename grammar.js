@@ -308,7 +308,7 @@ module.exports = grammar({
 				),
 				seq(
 					field('left', $._variable),
-					field('op', $.identifier),
+					field('op', $._variable),
 					field('value', $._variable),
 				),
 			),
