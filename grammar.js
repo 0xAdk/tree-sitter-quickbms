@@ -132,6 +132,7 @@ module.exports = grammar({
 			$.version_statement,
 			$.exit_statement,
 
+			$.string_statement,
 			$.math_statement,
 			$.xmath_statement,
 
@@ -198,6 +199,96 @@ module.exports = grammar({
 				case_insensitive('cleanexit'),
 				case_insensitive('exit'),
 				case_insensitive('exitifnofilesopen'),
+			),
+			$._statement_end,
+		),
+
+		// TODO: add to _printf and _sscanf rules printf string parsing for
+		//       format field: e.g. %d in "foo%d"
+		_string_statement_printf: $ => seq(
+			field('op', alias(
+				token(prec(1, seq(
+					optional(token.immediate('0')),
+					'p',
+					optional(token.immediate('=')),
+				))),
+				$.identifier,
+			)),
+			field('format', $._variable),
+			repeat(field('argument', $._variable)),
+		),
+
+		_string_statement_sscanf: $ => seq(
+			field('op', alias(
+				token(prec(1, seq(
+					optional(token.immediate('0')),
+					's',
+					optional(token.immediate('=')),
+				))),
+				$.identifier,
+			)),
+			field('format', $._variable),
+			repeat(field('argument', $._variable)),
+		),
+
+		// TODO: add bms print string parsing to format: e.g. %FOO|x% in "test%FOO|x%"
+		_string_statement_quickbms_print: $ => seq(
+			field('op', alias(
+				token(prec(1, seq(
+					optional(token.immediate('0')),
+					'P',
+					optional(token.immediate('=')),
+				))),
+				$.identifier,
+			)),
+			field('format', $._variable),
+		),
+
+		// TODO?: I'm not sure how this one works, might want to parse format field
+		_string_statement_sscanf_split: $ => seq(
+			field('op', alias(
+				token(prec(1, seq(
+					optional(token.immediate('0')),
+					'S',
+					optional(token.immediate('=')),
+				))),
+				$.identifier,
+			)),
+			field('format', $._variable),
+			repeat(field('argument', $._variable)),
+		),
+
+		_string_statement_replace: $ => seq(
+			field('op', alias(
+				token(prec(1, seq(
+					optional(token.immediate('0')),
+					'R',
+					optional(token.immediate('=')),
+				))),
+				$.identifier,
+			)),
+			field('format', $._variable),
+			repeat(field('argument', $._variable)),
+		),
+
+		string_statement: $ => seq(
+			case_insensitive('string'),
+			choice(
+				seq(
+					field('name', $._variable),
+					choice(
+						$._string_statement_printf,
+						$._string_statement_sscanf,
+						$._string_statement_quickbms_print,
+						$._string_statement_sscanf_split,
+						$._string_statement_replace,
+					)
+				),
+				seq(
+					field('left', $._variable),
+					field('op', $.identifier),
+					field('value', $._variable),
+				),
 			),
 			$._statement_end,
 		),

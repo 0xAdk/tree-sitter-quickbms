@@ -5,6 +5,7 @@
 	"exit"
 	"exitifnofilesopen"
 
+	"string"
 	"math"
 	"xmath"
 
@@ -95,7 +96,6 @@
 	; "ftell"
 	; "SETFILECNT"
 	; "SETBYTESREAD"
-	; "String"
 	; "Case"
 	; "ReverseShort"
 	; "FlipShort"
