@@ -242,6 +242,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "strlen_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "math_statement"
         },
         {
@@ -503,6 +507,56 @@
               },
               "named": false,
               "value": "exitifnofilesopen"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_end"
+        }
+      ]
+    },
+    "strlen_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[sS][tT][rR][lL][eE][nN]"
+          },
+          "named": false,
+          "value": "strlen"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_variable"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "string",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_variable"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "size",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_variable"
+              }
+            },
+            {
+              "type": "BLANK"
             }
           ]
         },

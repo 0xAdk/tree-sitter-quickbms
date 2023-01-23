@@ -6,6 +6,7 @@
 	"exitifnofilesopen"
 
 	"string"
+	"strlen"
 	"math"
 	"xmath"
 
@@ -113,7 +114,6 @@
 	; "StrEResizeC"
 	; "SeperateHeader"
 	; "FileCrypt"
-	; "Strlen"
 	; "Debug"
 	; "Encryption"
 	; "CRCHash"

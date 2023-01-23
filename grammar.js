@@ -133,6 +133,7 @@ module.exports = grammar({
 			$.exit_statement,
 
 			$.string_statement,
+			$.strlen_statement,
 			$.math_statement,
 			$.xmath_statement,
 
@@ -201,6 +202,14 @@ module.exports = grammar({
 				case_insensitive('exit'),
 				case_insensitive('exitifnofilesopen'),
 			),
+			$._statement_end,
+		),
+
+		strlen_statement: $ => seq(
+			case_insensitive('strlen'),
+			field('name', $._variable),
+			field('string', $._variable),
+			optional(field('size', $._variable)),
 			$._statement_end,
 		),
 
