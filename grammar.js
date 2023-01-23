@@ -154,6 +154,8 @@ module.exports = grammar({
 			$.start_function_statement,
 
 			$.for_statement,
+			$.do_statement,
+			$.loop_statement,
 			$.label_statement,
 			$.break_statement,
 			$.continue_statement,
@@ -588,6 +590,40 @@ module.exports = grammar({
 				$.next_statement,
 				$.prev_statement,
 			),
+		),
+
+		while_statement: $ => seq(
+			case_insensitive('while'),
+			field('condition', $.binary_expression),
+			$._statement_end,
+		),
+
+		// basically just $.while_statement, but the it only does != checks,
+		// and only on two variables. While $.while_statement, can do many
+		// kinds of checks, with multiple predicates.
+		end_loop_statement: $ => seq(
+			case_insensitive('endloop'),
+			field('left', $._variable),
+			field('right', $._variable),
+			$._statement_end,
+		),
+
+		do_statement: $ => seq(
+			case_insensitive('do'),
+			$._statement_end,
+
+			optional(field('body', $.statement_list)),
+
+			choice($.while_statement, $.end_loop_statement),
+		),
+
+		loop_statement: $ => seq(
+			case_insensitive('loop'),
+			$._statement_end,
+
+			optional(field('body', $.statement_list)),
+
+			choice($.while_statement, $.end_loop_statement),
 		),
 
 		label_statement: $ => seq(

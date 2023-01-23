@@ -55,11 +55,10 @@
 	"next"
 	"prev"
 
-	; "Loop"
-	; "EndLoop"
-	;
-	; "Do"
-	; "While"
+	"do"
+	"loop"
+	"while"
+	"endloop"
 
 	"continue"
 	"break"
