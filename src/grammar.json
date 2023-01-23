@@ -366,7 +366,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "c_define_statement"
+          "name": "c_variable_declaration"
         }
       ]
     },
@@ -4415,992 +4415,114 @@
         }
       ]
     },
-    "c_define_statement": {
+    "c_type_qualifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "unsigned"
+        },
+        {
+          "type": "STRING",
+          "value": "signed"
+        },
+        {
+          "type": "STRING",
+          "value": "const"
+        },
+        {
+          "type": "STRING",
+          "value": "static"
+        },
+        {
+          "type": "STRING",
+          "value": "local"
+        },
+        {
+          "type": "STRING",
+          "value": "global"
+        },
+        {
+          "type": "STRING",
+          "value": "volatile"
+        },
+        {
+          "type": "STRING",
+          "value": "hexadecimal"
+        },
+        {
+          "type": "STRING",
+          "value": "decimal"
+        },
+        {
+          "type": "STRING",
+          "value": "octal"
+        },
+        {
+          "type": "STRING",
+          "value": "read-only"
+        }
+      ]
+    },
+    "_c_identifier": {
+      "type": "PATTERN",
+      "value": "[A-za-z_]\\w*"
+    },
+    "c_type": {
+      "type": "SYMBOL",
+      "name": "_c_identifier"
+    },
+    "c_qualified_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "c_type_qualifier"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "c_type"
+        }
+      ]
+    },
+    "_c_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "c_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "c_qualified_type"
+        }
+      ]
+    },
+    "c_variable_declaration": {
       "type": "SEQ",
       "members": [
         {
           "type": "FIELD",
           "name": "type",
           "content": {
-            "type": "ALIAS",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "8"
-                  },
-                  "named": false,
-                  "value": "8"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "8[bB][iI][tT]"
-                  },
-                  "named": false,
-                  "value": "8bit"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[bB][yY][tT][eE]"
-                  },
-                  "named": false,
-                  "value": "byte"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][bB][yY][tT][eE]"
-                  },
-                  "named": false,
-                  "value": "ubyte"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[cC][hH][aA][rR]"
-                  },
-                  "named": false,
-                  "value": "char"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[cC][cC][hH][aA][rR]"
-                  },
-                  "named": false,
-                  "value": "cchar"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[tT][cC][hH][aA][rR]"
-                  },
-                  "named": false,
-                  "value": "tchar"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][cC][hH][aA][rR]"
-                  },
-                  "named": false,
-                  "value": "uchar"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU]_[cC][hH][aA][rR]"
-                  },
-                  "named": false,
-                  "value": "u_char"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][iI][nN][tT]8_[tT]"
-                  },
-                  "named": false,
-                  "value": "uint8_t"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][iI][nN][tT]8"
-                  },
-                  "named": false,
-                  "value": "uint8"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[iI][nN][tT]8_[tT]"
-                  },
-                  "named": false,
-                  "value": "int8_t"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[iI][nN][tT]8"
-                  },
-                  "named": false,
-                  "value": "int8"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU]8"
-                  },
-                  "named": false,
-                  "value": "u8"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[iI]8"
-                  },
-                  "named": false,
-                  "value": "i8"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[sS][iI]8"
-                  },
-                  "named": false,
-                  "value": "si8"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][iI]8"
-                  },
-                  "named": false,
-                  "value": "ui8"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[cC][hH]"
-                  },
-                  "named": false,
-                  "value": "ch"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[tT][cC][hH]"
-                  },
-                  "named": false,
-                  "value": "tch"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[sS][tT][rR]"
-                  },
-                  "named": false,
-                  "value": "str"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[sS][zZ]"
-                  },
-                  "named": false,
-                  "value": "sz"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[cC][tT][sS][tT][rR]"
-                  },
-                  "named": false,
-                  "value": "ctstr"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[tT][sS][tT][rR]"
-                  },
-                  "named": false,
-                  "value": "tstr"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[fF][cC][hH][aA][rR]"
-                  },
-                  "named": false,
-                  "value": "fchar"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[bB][oO][oO][lL][eE]8"
-                  },
-                  "named": false,
-                  "value": "boole8"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[sS][tT][rR][iI][nN][gG]"
-                  },
-                  "named": false,
-                  "value": "string"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[zZ][sS][tT][rR][iI][nN][gG]"
-                  },
-                  "named": false,
-                  "value": "zstring"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[bB][iI][nN][aA][rR][yY]"
-                  },
-                  "named": false,
-                  "value": "binary"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "16"
-                  },
-                  "named": false,
-                  "value": "16"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "16[bB][iI][tT]"
-                  },
-                  "named": false,
-                  "value": "16bit"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[wW][oO][rR][dD]"
-                  },
-                  "named": false,
-                  "value": "word"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[sS][hH][oO][rR][tT]"
-                  },
-                  "named": false,
-                  "value": "short"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][sS][hH][oO][rR][tT]"
-                  },
-                  "named": false,
-                  "value": "ushort"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU]_[sS][hH][oO][rR][tT]"
-                  },
-                  "named": false,
-                  "value": "u_short"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][iI][nN][tT]16_[tT]"
-                  },
-                  "named": false,
-                  "value": "uint16_t"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][iI][nN][tT]16"
-                  },
-                  "named": false,
-                  "value": "uint16"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[iI][nN][tT]16_[tT]"
-                  },
-                  "named": false,
-                  "value": "int16_t"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[iI][nN][tT]16"
-                  },
-                  "named": false,
-                  "value": "int16"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU]16"
-                  },
-                  "named": false,
-                  "value": "u16"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[iI]16"
-                  },
-                  "named": false,
-                  "value": "i16"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[sS][iI]16"
-                  },
-                  "named": false,
-                  "value": "si16"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][iI]16"
-                  },
-                  "named": false,
-                  "value": "ui16"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[fF][iI][xX][eE][dD]8"
-                  },
-                  "named": false,
-                  "value": "fixed8"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[wW][cC][hH][aA][rR]"
-                  },
-                  "named": false,
-                  "value": "wchar"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[wW][cC][hH][aA][rR]_[tT]"
-                  },
-                  "named": false,
-                  "value": "wchar_t"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[wW][cC][hH]"
-                  },
-                  "named": false,
-                  "value": "wch"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[wW][sS][tT][rR]"
-                  },
-                  "named": false,
-                  "value": "wstr"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[fF][sS][hH][oO][rR][tT]"
-                  },
-                  "named": false,
-                  "value": "fshort"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[cC][hH][aA][rR]16"
-                  },
-                  "named": false,
-                  "value": "char16"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[sS][tT][rR][iI][nN][gG]16"
-                  },
-                  "named": false,
-                  "value": "string16"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[bB][oO][oO][lL][eE]16"
-                  },
-                  "named": false,
-                  "value": "boole16"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[zZ][sS][tT][rR][iI][nN][gG]16"
-                  },
-                  "named": false,
-                  "value": "zstring16"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "32"
-                  },
-                  "named": false,
-                  "value": "32"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "32[bB][iI][tT]"
-                  },
-                  "named": false,
-                  "value": "32bit"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[dD][wW][oO][rR][dD]"
-                  },
-                  "named": false,
-                  "value": "dword"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][nN][sS][iI][gG][nN][eE][dD]"
-                  },
-                  "named": false,
-                  "value": "unsigned"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[iI][nN][tT]"
-                  },
-                  "named": false,
-                  "value": "int"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][iI][nN][tT]"
-                  },
-                  "named": false,
-                  "value": "uint"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU]_[iI][nN][tT]"
-                  },
-                  "named": false,
-                  "value": "u_int"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[lL][oO][nN][gG]"
-                  },
-                  "named": false,
-                  "value": "long"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][lL][oO][nN][gG]"
-                  },
-                  "named": false,
-                  "value": "ulong"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU]_[lL][oO][nN][gG]"
-                  },
-                  "named": false,
-                  "value": "u_long"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][iI][nN][tT]32_[tT]"
-                  },
-                  "named": false,
-                  "value": "uint32_t"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][iI][nN][tT]32"
-                  },
-                  "named": false,
-                  "value": "uint32"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[iI][nN][tT]32_[tT]"
-                  },
-                  "named": false,
-                  "value": "int32_t"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[iI][nN][tT]32"
-                  },
-                  "named": false,
-                  "value": "int32"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU]32"
-                  },
-                  "named": false,
-                  "value": "u32"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[iI]32"
-                  },
-                  "named": false,
-                  "value": "i32"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[sS][iI]32"
-                  },
-                  "named": false,
-                  "value": "si32"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][iI]32"
-                  },
-                  "named": false,
-                  "value": "ui32"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[fF][iI][xX][eE][dD]"
-                  },
-                  "named": false,
-                  "value": "fixed"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[fF][lL][oO][aA][tT]16"
-                  },
-                  "named": false,
-                  "value": "float16"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[bB][oO][oO][lL]"
-                  },
-                  "named": false,
-                  "value": "bool"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[bB][oO][oO][lL][eE][aA][nN]"
-                  },
-                  "named": false,
-                  "value": "boolean"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[bB][oO][oO][lL][eE]32"
-                  },
-                  "named": false,
-                  "value": "boole32"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[vV][oO][iI][dD]"
-                  },
-                  "named": false,
-                  "value": "void"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[hH][aA][nN][dD][lL][eE]"
-                  },
-                  "named": false,
-                  "value": "handle"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[fF][lL][oO][nN][gG]"
-                  },
-                  "named": false,
-                  "value": "flong"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[dD][oO][sS][dD][aA][tT][eE][tT][iI][mM][eE]"
-                  },
-                  "named": false,
-                  "value": "dosdatetime"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][nN][iI][xX][dD][aA][tT][eE][tT][iI][mM][eE]"
-                  },
-                  "named": false,
-                  "value": "unixdatetime"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[tT][iI][mM][eE]_[tT]"
-                  },
-                  "named": false,
-                  "value": "time_t"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "64"
-                  },
-                  "named": false,
-                  "value": "64"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "64[bB][iI][tT]"
-                  },
-                  "named": false,
-                  "value": "64bit"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[lL][oO][nN][gG][lL][oO][nN][gG]"
-                  },
-                  "named": false,
-                  "value": "longlong"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][lL][oO][nN][gG][lL][oO][nN][gG]"
-                  },
-                  "named": false,
-                  "value": "ulonglong"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU]_[lL][oO][nN][gG][lL][oO][nN][gG]"
-                  },
-                  "named": false,
-                  "value": "u_longlong"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][iI][nN][tT]64_[tT]"
-                  },
-                  "named": false,
-                  "value": "uint64_t"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][iI][nN][tT]64"
-                  },
-                  "named": false,
-                  "value": "uint64"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[iI][nN][tT]64_[tT]"
-                  },
-                  "named": false,
-                  "value": "int64_t"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[iI][nN][tT]64"
-                  },
-                  "named": false,
-                  "value": "int64"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU]64"
-                  },
-                  "named": false,
-                  "value": "u64"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[iI]64"
-                  },
-                  "named": false,
-                  "value": "i64"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[sS][iI]64"
-                  },
-                  "named": false,
-                  "value": "si64"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][iI]64"
-                  },
-                  "named": false,
-                  "value": "ui64"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[vV][oO][iI][dD]64"
-                  },
-                  "named": false,
-                  "value": "void64"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[fF][iI][lL][eE][tT][iI][mM][eE]"
-                  },
-                  "named": false,
-                  "value": "filetime"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[oO][lL][eE][dD][aA][tT][eE][tT][iI][mM][eE]"
-                  },
-                  "named": false,
-                  "value": "oledatetime"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[sS][qQ][lL][dD][aA][tT][eE][tT][iI][mM][eE]"
-                  },
-                  "named": false,
-                  "value": "sqldatetime"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[jJ][aA][vV][aA][dD][aA][tT][eE][tT][iI][mM][eE]"
-                  },
-                  "named": false,
-                  "value": "javadatetime"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[fF][lL][oO][aA][tT]"
-                  },
-                  "named": false,
-                  "value": "float"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[dD][oO][uU][bB][lL][eE]"
-                  },
-                  "named": false,
-                  "value": "double"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[eE][nN][cC][oO][dD][eE][dD][uU]32"
-                  },
-                  "named": false,
-                  "value": "encodedu32"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[eE][nN][cC][oO][dD][eE][dD]"
-                  },
-                  "named": false,
-                  "value": "encoded"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[bB][iI][tT][sS]"
-                  },
-                  "named": false,
-                  "value": "bits"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[sS][bB]"
-                  },
-                  "named": false,
-                  "value": "sb"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[uU][bB]"
-                  },
-                  "named": false,
-                  "value": "ub"
-                },
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "[fF][bB]"
-                  },
-                  "named": false,
-                  "value": "fb"
-                }
-              ]
-            },
-            "named": true,
-            "value": "identifier"
+            "type": "SYMBOL",
+            "name": "_c_type"
           }
         },
         {
           "type": "FIELD",
           "name": "name",
           "content": {
-            "type": "SYMBOL",
-            "name": "_variable"
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_c_identifier"
+            },
+            "named": true,
+            "value": "identifier"
           }
         }
       ]

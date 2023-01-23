@@ -158,6 +158,9 @@
 ] @keyword
 
 (_ type: _ @type.builtin)
+(c_type) @type
+(c_type_qualifier) @type.qualifier
+
 (_ op: _ @operator)
 
 (call_function_statement name: _ @function)

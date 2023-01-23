@@ -156,7 +156,36 @@
     }
   },
   {
-    "type": "c_define_statement",
+    "type": "c_qualified_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "c_type",
+          "named": true
+        },
+        {
+          "type": "c_type_qualifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "c_type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "c_type_qualifier",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "c_variable_declaration",
     "named": true,
     "fields": {
       "name": {
@@ -164,19 +193,7 @@
         "required": true,
         "types": [
           {
-            "type": "character",
-            "named": true
-          },
-          {
             "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "number",
-            "named": true
-          },
-          {
-            "type": "string",
             "named": true
           }
         ]
@@ -186,432 +203,12 @@
         "required": true,
         "types": [
           {
-            "type": "16",
-            "named": false
+            "type": "c_qualified_type",
+            "named": true
           },
           {
-            "type": "16bit",
-            "named": false
-          },
-          {
-            "type": "32",
-            "named": false
-          },
-          {
-            "type": "32bit",
-            "named": false
-          },
-          {
-            "type": "64",
-            "named": false
-          },
-          {
-            "type": "64bit",
-            "named": false
-          },
-          {
-            "type": "8",
-            "named": false
-          },
-          {
-            "type": "8bit",
-            "named": false
-          },
-          {
-            "type": "binary",
-            "named": false
-          },
-          {
-            "type": "bits",
-            "named": false
-          },
-          {
-            "type": "bool",
-            "named": false
-          },
-          {
-            "type": "boole16",
-            "named": false
-          },
-          {
-            "type": "boole32",
-            "named": false
-          },
-          {
-            "type": "boole8",
-            "named": false
-          },
-          {
-            "type": "boolean",
-            "named": false
-          },
-          {
-            "type": "byte",
-            "named": false
-          },
-          {
-            "type": "cchar",
-            "named": false
-          },
-          {
-            "type": "ch",
-            "named": false
-          },
-          {
-            "type": "char",
-            "named": false
-          },
-          {
-            "type": "char16",
-            "named": false
-          },
-          {
-            "type": "ctstr",
-            "named": false
-          },
-          {
-            "type": "dosdatetime",
-            "named": false
-          },
-          {
-            "type": "double",
-            "named": false
-          },
-          {
-            "type": "dword",
-            "named": false
-          },
-          {
-            "type": "encoded",
-            "named": false
-          },
-          {
-            "type": "encodedu32",
-            "named": false
-          },
-          {
-            "type": "fb",
-            "named": false
-          },
-          {
-            "type": "fchar",
-            "named": false
-          },
-          {
-            "type": "filetime",
-            "named": false
-          },
-          {
-            "type": "fixed",
-            "named": false
-          },
-          {
-            "type": "fixed8",
-            "named": false
-          },
-          {
-            "type": "float",
-            "named": false
-          },
-          {
-            "type": "float16",
-            "named": false
-          },
-          {
-            "type": "flong",
-            "named": false
-          },
-          {
-            "type": "fshort",
-            "named": false
-          },
-          {
-            "type": "handle",
-            "named": false
-          },
-          {
-            "type": "i16",
-            "named": false
-          },
-          {
-            "type": "i32",
-            "named": false
-          },
-          {
-            "type": "i64",
-            "named": false
-          },
-          {
-            "type": "i8",
-            "named": false
-          },
-          {
-            "type": "int",
-            "named": false
-          },
-          {
-            "type": "int16",
-            "named": false
-          },
-          {
-            "type": "int16_t",
-            "named": false
-          },
-          {
-            "type": "int32",
-            "named": false
-          },
-          {
-            "type": "int32_t",
-            "named": false
-          },
-          {
-            "type": "int64",
-            "named": false
-          },
-          {
-            "type": "int64_t",
-            "named": false
-          },
-          {
-            "type": "int8",
-            "named": false
-          },
-          {
-            "type": "int8_t",
-            "named": false
-          },
-          {
-            "type": "javadatetime",
-            "named": false
-          },
-          {
-            "type": "long",
-            "named": false
-          },
-          {
-            "type": "longlong",
-            "named": false
-          },
-          {
-            "type": "oledatetime",
-            "named": false
-          },
-          {
-            "type": "sb",
-            "named": false
-          },
-          {
-            "type": "short",
-            "named": false
-          },
-          {
-            "type": "si16",
-            "named": false
-          },
-          {
-            "type": "si32",
-            "named": false
-          },
-          {
-            "type": "si64",
-            "named": false
-          },
-          {
-            "type": "si8",
-            "named": false
-          },
-          {
-            "type": "sqldatetime",
-            "named": false
-          },
-          {
-            "type": "str",
-            "named": false
-          },
-          {
-            "type": "string",
-            "named": false
-          },
-          {
-            "type": "string16",
-            "named": false
-          },
-          {
-            "type": "sz",
-            "named": false
-          },
-          {
-            "type": "tch",
-            "named": false
-          },
-          {
-            "type": "tchar",
-            "named": false
-          },
-          {
-            "type": "time_t",
-            "named": false
-          },
-          {
-            "type": "tstr",
-            "named": false
-          },
-          {
-            "type": "u16",
-            "named": false
-          },
-          {
-            "type": "u32",
-            "named": false
-          },
-          {
-            "type": "u64",
-            "named": false
-          },
-          {
-            "type": "u8",
-            "named": false
-          },
-          {
-            "type": "u_char",
-            "named": false
-          },
-          {
-            "type": "u_int",
-            "named": false
-          },
-          {
-            "type": "u_long",
-            "named": false
-          },
-          {
-            "type": "u_longlong",
-            "named": false
-          },
-          {
-            "type": "u_short",
-            "named": false
-          },
-          {
-            "type": "ub",
-            "named": false
-          },
-          {
-            "type": "ubyte",
-            "named": false
-          },
-          {
-            "type": "uchar",
-            "named": false
-          },
-          {
-            "type": "ui16",
-            "named": false
-          },
-          {
-            "type": "ui32",
-            "named": false
-          },
-          {
-            "type": "ui64",
-            "named": false
-          },
-          {
-            "type": "ui8",
-            "named": false
-          },
-          {
-            "type": "uint",
-            "named": false
-          },
-          {
-            "type": "uint16",
-            "named": false
-          },
-          {
-            "type": "uint16_t",
-            "named": false
-          },
-          {
-            "type": "uint32",
-            "named": false
-          },
-          {
-            "type": "uint32_t",
-            "named": false
-          },
-          {
-            "type": "uint64",
-            "named": false
-          },
-          {
-            "type": "uint64_t",
-            "named": false
-          },
-          {
-            "type": "uint8",
-            "named": false
-          },
-          {
-            "type": "uint8_t",
-            "named": false
-          },
-          {
-            "type": "ulong",
-            "named": false
-          },
-          {
-            "type": "ulonglong",
-            "named": false
-          },
-          {
-            "type": "unixdatetime",
-            "named": false
-          },
-          {
-            "type": "unsigned",
-            "named": false
-          },
-          {
-            "type": "ushort",
-            "named": false
-          },
-          {
-            "type": "void",
-            "named": false
-          },
-          {
-            "type": "void64",
-            "named": false
-          },
-          {
-            "type": "wch",
-            "named": false
-          },
-          {
-            "type": "wchar",
-            "named": false
-          },
-          {
-            "type": "wchar_t",
-            "named": false
-          },
-          {
-            "type": "word",
-            "named": false
-          },
-          {
-            "type": "wstr",
-            "named": false
-          },
-          {
-            "type": "zstring",
-            "named": false
-          },
-          {
-            "type": "zstring16",
-            "named": false
+            "type": "c_type",
+            "named": true
           }
         ]
       }
@@ -4167,7 +3764,7 @@
           "named": true
         },
         {
-          "type": "c_define_statement",
+          "type": "c_variable_declaration",
           "named": true
         },
         {
@@ -4820,38 +4417,6 @@
     "named": false
   },
   {
-    "type": "16",
-    "named": false
-  },
-  {
-    "type": "16bit",
-    "named": false
-  },
-  {
-    "type": "32",
-    "named": false
-  },
-  {
-    "type": "32bit",
-    "named": false
-  },
-  {
-    "type": "64",
-    "named": false
-  },
-  {
-    "type": "64bit",
-    "named": false
-  },
-  {
-    "type": "8",
-    "named": false
-  },
-  {
-    "type": "8bit",
-    "named": false
-  },
-  {
     "type": ";",
     "named": false
   },
@@ -4952,43 +4517,11 @@
     "named": false
   },
   {
-    "type": "binary",
-    "named": false
-  },
-  {
-    "type": "bits",
-    "named": false
-  },
-  {
     "type": "bms",
     "named": false
   },
   {
-    "type": "bool",
-    "named": false
-  },
-  {
-    "type": "boole16",
-    "named": false
-  },
-  {
-    "type": "boole32",
-    "named": false
-  },
-  {
-    "type": "boole8",
-    "named": false
-  },
-  {
-    "type": "boolean",
-    "named": false
-  },
-  {
     "type": "break",
-    "named": false
-  },
-  {
-    "type": "byte",
     "named": false
   },
   {
@@ -4997,22 +4530,6 @@
   },
   {
     "type": "callfunction",
-    "named": false
-  },
-  {
-    "type": "cchar",
-    "named": false
-  },
-  {
-    "type": "ch",
-    "named": false
-  },
-  {
-    "type": "char",
-    "named": false
-  },
-  {
-    "type": "char16",
     "named": false
   },
   {
@@ -5036,11 +4553,15 @@
     "named": false
   },
   {
+    "type": "const",
+    "named": false
+  },
+  {
     "type": "continue",
     "named": false
   },
   {
-    "type": "ctstr",
+    "type": "decimal",
     "named": false
   },
   {
@@ -5056,31 +4577,11 @@
     "named": false
   },
   {
-    "type": "dosdatetime",
-    "named": false
-  },
-  {
-    "type": "double",
-    "named": false
-  },
-  {
-    "type": "dword",
-    "named": false
-  },
-  {
     "type": "elif",
     "named": false
   },
   {
     "type": "else",
-    "named": false
-  },
-  {
-    "type": "encoded",
-    "named": false
-  },
-  {
-    "type": "encodedu32",
     "named": false
   },
   {
@@ -5128,23 +4629,11 @@
     "named": false
   },
   {
-    "type": "fb",
-    "named": false
-  },
-  {
-    "type": "fchar",
-    "named": false
-  },
-  {
     "type": "filename",
     "named": false
   },
   {
     "type": "filepath",
-    "named": false
-  },
-  {
-    "type": "filetime",
     "named": false
   },
   {
@@ -5156,31 +4645,7 @@
     "named": false
   },
   {
-    "type": "fixed",
-    "named": false
-  },
-  {
-    "type": "fixed8",
-    "named": false
-  },
-  {
-    "type": "float",
-    "named": false
-  },
-  {
-    "type": "float16",
-    "named": false
-  },
-  {
-    "type": "flong",
-    "named": false
-  },
-  {
     "type": "for",
-    "named": false
-  },
-  {
-    "type": "fshort",
     "named": false
   },
   {
@@ -5208,6 +4673,10 @@
     "named": false
   },
   {
+    "type": "global",
+    "named": false
+  },
+  {
     "type": "goto",
     "named": false
   },
@@ -5216,23 +4685,7 @@
     "named": false
   },
   {
-    "type": "handle",
-    "named": false
-  },
-  {
-    "type": "i16",
-    "named": false
-  },
-  {
-    "type": "i32",
-    "named": false
-  },
-  {
-    "type": "i64",
-    "named": false
-  },
-  {
-    "type": "i8",
+    "type": "hexadecimal",
     "named": false
   },
   {
@@ -5252,59 +4705,15 @@
     "named": false
   },
   {
-    "type": "int",
-    "named": false
-  },
-  {
-    "type": "int16",
-    "named": false
-  },
-  {
-    "type": "int16_t",
-    "named": false
-  },
-  {
-    "type": "int32",
-    "named": false
-  },
-  {
-    "type": "int32_t",
-    "named": false
-  },
-  {
-    "type": "int64",
-    "named": false
-  },
-  {
-    "type": "int64_t",
-    "named": false
-  },
-  {
-    "type": "int8",
-    "named": false
-  },
-  {
-    "type": "int8_t",
-    "named": false
-  },
-  {
-    "type": "javadatetime",
-    "named": false
-  },
-  {
     "type": "label",
     "named": false
   },
   {
+    "type": "local",
+    "named": false
+  },
+  {
     "type": "log",
-    "named": false
-  },
-  {
-    "type": "long",
-    "named": false
-  },
-  {
-    "type": "longlong",
     "named": false
   },
   {
@@ -5348,7 +4757,7 @@
     "named": true
   },
   {
-    "type": "oledatetime",
+    "type": "octal",
     "named": false
   },
   {
@@ -5400,11 +4809,11 @@
     "named": false
   },
   {
-    "type": "savepos",
+    "type": "read-only",
     "named": false
   },
   {
-    "type": "sb",
+    "type": "savepos",
     "named": false
   },
   {
@@ -5416,27 +4825,11 @@
     "named": false
   },
   {
-    "type": "short",
-    "named": false
-  },
-  {
     "type": "shr",
     "named": false
   },
   {
-    "type": "si16",
-    "named": false
-  },
-  {
-    "type": "si32",
-    "named": false
-  },
-  {
-    "type": "si64",
-    "named": false
-  },
-  {
-    "type": "si8",
+    "type": "signed",
     "named": false
   },
   {
@@ -5444,15 +4837,11 @@
     "named": false
   },
   {
-    "type": "sqldatetime",
-    "named": false
-  },
-  {
     "type": "startfunction",
     "named": false
   },
   {
-    "type": "str",
+    "type": "static",
     "named": false
   },
   {
@@ -5473,10 +4862,6 @@
   },
   {
     "type": "string",
-    "named": false
-  },
-  {
-    "type": "string16",
     "named": false
   },
   {
@@ -5504,139 +4889,7 @@
     "named": false
   },
   {
-    "type": "sz",
-    "named": false
-  },
-  {
-    "type": "tch",
-    "named": false
-  },
-  {
-    "type": "tchar",
-    "named": false
-  },
-  {
-    "type": "time_t",
-    "named": false
-  },
-  {
-    "type": "tstr",
-    "named": false
-  },
-  {
     "type": "u",
-    "named": false
-  },
-  {
-    "type": "u16",
-    "named": false
-  },
-  {
-    "type": "u32",
-    "named": false
-  },
-  {
-    "type": "u64",
-    "named": false
-  },
-  {
-    "type": "u8",
-    "named": false
-  },
-  {
-    "type": "u_char",
-    "named": false
-  },
-  {
-    "type": "u_int",
-    "named": false
-  },
-  {
-    "type": "u_long",
-    "named": false
-  },
-  {
-    "type": "u_longlong",
-    "named": false
-  },
-  {
-    "type": "u_short",
-    "named": false
-  },
-  {
-    "type": "ub",
-    "named": false
-  },
-  {
-    "type": "ubyte",
-    "named": false
-  },
-  {
-    "type": "uchar",
-    "named": false
-  },
-  {
-    "type": "ui16",
-    "named": false
-  },
-  {
-    "type": "ui32",
-    "named": false
-  },
-  {
-    "type": "ui64",
-    "named": false
-  },
-  {
-    "type": "ui8",
-    "named": false
-  },
-  {
-    "type": "uint",
-    "named": false
-  },
-  {
-    "type": "uint16",
-    "named": false
-  },
-  {
-    "type": "uint16_t",
-    "named": false
-  },
-  {
-    "type": "uint32",
-    "named": false
-  },
-  {
-    "type": "uint32_t",
-    "named": false
-  },
-  {
-    "type": "uint64",
-    "named": false
-  },
-  {
-    "type": "uint64_t",
-    "named": false
-  },
-  {
-    "type": "uint8",
-    "named": false
-  },
-  {
-    "type": "uint8_t",
-    "named": false
-  },
-  {
-    "type": "ulong",
-    "named": false
-  },
-  {
-    "type": "ulonglong",
-    "named": false
-  },
-  {
-    "type": "unixdatetime",
     "named": false
   },
   {
@@ -5644,39 +4897,11 @@
     "named": false
   },
   {
-    "type": "ushort",
-    "named": false
-  },
-  {
-    "type": "void",
-    "named": false
-  },
-  {
-    "type": "void64",
-    "named": false
-  },
-  {
-    "type": "wch",
-    "named": false
-  },
-  {
-    "type": "wchar",
-    "named": false
-  },
-  {
-    "type": "wchar_t",
+    "type": "volatile",
     "named": false
   },
   {
     "type": "while",
-    "named": false
-  },
-  {
-    "type": "word",
-    "named": false
-  },
-  {
-    "type": "wstr",
     "named": false
   },
   {
@@ -5685,14 +4910,6 @@
   },
   {
     "type": "xor",
-    "named": false
-  },
-  {
-    "type": "zstring",
-    "named": false
-  },
-  {
-    "type": "zstring16",
     "named": false
   },
   {
