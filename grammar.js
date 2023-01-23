@@ -690,6 +690,7 @@ module.exports = grammar({
 			optional(field('body', $.statement_list)),
 
 			case_insensitive('endfunction'),
+			optional($._variable),
 			$._statement_end,
 		),
 
