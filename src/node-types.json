@@ -4032,6 +4032,110 @@
     }
   },
   {
+    "type": "scan_dir_statement",
+    "named": true,
+    "fields": {
+      "filter": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "path": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "size": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "set_statement",
     "named": true,
     "fields": {
@@ -4407,6 +4511,10 @@
         },
         {
           "type": "save_pos_statement",
+          "named": true
+        },
+        {
+          "type": "scan_dir_statement",
           "named": true
         },
         {
@@ -5340,6 +5448,10 @@
   },
   {
     "type": "savepos",
+    "named": false
+  },
+  {
+    "type": "scandir",
     "named": false
   },
   {

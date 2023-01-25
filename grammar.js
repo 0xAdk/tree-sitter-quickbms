@@ -83,6 +83,7 @@ module.exports = grammar({
 			$.xmath_statement,
 			$.find_loc_statement,
 
+			$.scan_dir_statement,
 			$.open_statement,
 			$.file_xor_statement,
 			$.file_rot_statement,
@@ -388,6 +389,15 @@ module.exports = grammar({
 			$.get_d_string_statement,
 			$.get_c_t_statement,
 			$.get_bits_statement,
+		),
+
+		scan_dir_statement: $ => seq(
+			case_insensitive('scandir'),
+			field('path', $._variable),
+			field('name', $._variable),
+			field('size', $._variable),
+			optional(field('filter', $._variable)),
+			$._statement_end,
 		),
 
 		open_statement: $ => seq(

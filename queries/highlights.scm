@@ -11,6 +11,7 @@
 	"xmath"
 	"findloc"
 
+	"scandir"
 	"open"
 	"filexor"
 	"filerot"
@@ -122,7 +123,6 @@
 	; "MessageBox"
 	; "SortArray"
 	; "SearchArray"
-	; "ScanDir"
 	; "include"
 	; "Game"
 	; "NOP"

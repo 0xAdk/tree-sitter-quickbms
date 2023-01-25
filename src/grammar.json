@@ -258,6 +258,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "scan_dir_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "open_statement"
         },
         {
@@ -1809,6 +1813,64 @@
         {
           "type": "SYMBOL",
           "name": "get_bits_statement"
+        }
+      ]
+    },
+    "scan_dir_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[sS][cC][aA][nN][dD][iI][rR]"
+          },
+          "named": false,
+          "value": "scandir"
+        },
+        {
+          "type": "FIELD",
+          "name": "path",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_variable"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_variable"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "size",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_variable"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "filter",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_variable"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_end"
         }
       ]
     },
