@@ -676,6 +676,7 @@ module.exports = grammar({
 				case_insensitive('filepath'),
 				case_insensitive('filename'),
 			),
+			optional('=')
 		),
 
 		binary_expression: $ => seq(
