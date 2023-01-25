@@ -118,6 +118,7 @@ module.exports = grammar({
 			$.encryption_statement,
 			$.log_statement,
 			$.comtype_statement,
+			$.codepage_statement,
 			$.clog_statement,
 			$.s_log_statement,
 
@@ -835,6 +836,12 @@ module.exports = grammar({
 				field('dictionary', $._variable),
 				optional(field('dictionary_length', $._variable)),
 			)),
+			$._statement_end,
+		),
+
+		codepage_statement: $ => seq(
+			case_insensitive('codepage'),
+			field('codepage', $._variable),
 			$._statement_end,
 		),
 

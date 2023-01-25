@@ -81,6 +81,7 @@
 	"encryption"
 	"log"
 	"comtype"
+	"codepage"
 	"clog"
 	"slog"
 
@@ -90,7 +91,6 @@
 	; "fseek"
 	; "ImpType"
 	; "ExtractFile"
-	; "Codepage"
 	; "Add"
 	; "Inc"
 	; "Subst"

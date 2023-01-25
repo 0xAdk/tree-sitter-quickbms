@@ -662,6 +662,44 @@
     }
   },
   {
+    "type": "codepage_statement",
+    "named": true,
+    "fields": {
+      "codepage": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "comtype_statement",
     "named": true,
     "fields": {
@@ -4208,6 +4246,10 @@
           "named": true
         },
         {
+          "type": "codepage_statement",
+          "named": true
+        },
+        {
           "type": "comment",
           "named": true
         },
@@ -5002,6 +5044,10 @@
   },
   {
     "type": "clog",
+    "named": false
+  },
+  {
+    "type": "codepage",
     "named": false
   },
   {

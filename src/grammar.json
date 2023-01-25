@@ -370,6 +370,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "codepage_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "clog_statement"
         },
         {
@@ -4563,6 +4567,32 @@
               "type": "BLANK"
             }
           ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_end"
+        }
+      ]
+    },
+    "codepage_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[cC][oO][dD][eE][pP][aA][gG][eE]"
+          },
+          "named": false,
+          "value": "codepage"
+        },
+        {
+          "type": "FIELD",
+          "name": "codepage",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_variable"
+          }
         },
         {
           "type": "SYMBOL",
