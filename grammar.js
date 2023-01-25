@@ -81,6 +81,7 @@ module.exports = grammar({
 			$.strlen_statement,
 			$.math_statement,
 			$.xmath_statement,
+			$.sort_array_statement,
 			$.find_loc_statement,
 
 			$.scan_dir_statement,
@@ -270,6 +271,13 @@ module.exports = grammar({
 			// TODO: parse this as it's own rule since while operations looks like a
 			//       string, it really has it's own syntax
 			field('operations', $._variable),
+			$._statement_end,
+		),
+
+		sort_array_statement: $ => seq(
+			case_insensitive('sortarray'),
+			field('array', $._variable),
+			optional(field('all', $._variable)),
 			$._statement_end,
 		),
 

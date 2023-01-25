@@ -254,6 +254,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "sort_array_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "find_loc_statement"
         },
         {
@@ -1141,6 +1145,48 @@
             "type": "SYMBOL",
             "name": "_variable"
           }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_end"
+        }
+      ]
+    },
+    "sort_array_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[sS][oO][rR][tT][aA][rR][rR][aA][yY]"
+          },
+          "named": false,
+          "value": "sortarray"
+        },
+        {
+          "type": "FIELD",
+          "name": "array",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_variable"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "all",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_variable"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",

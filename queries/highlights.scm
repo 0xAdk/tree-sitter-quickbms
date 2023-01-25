@@ -9,6 +9,7 @@
 	"strlen"
 	"math"
 	"xmath"
+	"sortarray"
 	"findloc"
 
 	"scandir"
@@ -121,7 +122,6 @@
 	; "Debug"
 	; "CRCHash"
 	; "MessageBox"
-	; "SortArray"
 	; "SearchArray"
 	; "include"
 	; "Game"
