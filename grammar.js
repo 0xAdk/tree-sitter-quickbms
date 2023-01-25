@@ -6,69 +6,6 @@ let c_type_qualifiers = [
 	'read-only',
 ]
 
-let c_types = [
-	'8', '8bit',
-	'byte', 'ubyte',
-	'char', 'cchar',
-	'tchar', 'uchar',
-	'u_char', 'uint8_t',
-	'uint8', 'int8_t',
-	'int8', 'u8',
-	'i8', 'si8',
-	'ui8', 'ch',
-	'tch', 'str',
-	'sz', 'ctstr',
-	'tstr', 'fchar',
-	'boole8', 'string',
-	'zstring', 'binary',
-
-	'16', '16bit',
-	'word', 'short',
-	'ushort', 'u_short',
-	'uint16_t', 'uint16',
-	'int16_t', 'int16',
-	'u16', 'i16',
-	'si16', 'ui16',
-	'fixed8', 'wchar',
-	'wchar_t', 'wch',
-	'wstr', 'fshort',
-	'char16', 'string16',
-	'boole16', 'zstring16',
-
-	'32', '32bit',
-	'dword', 'unsigned',
-	'int', 'uint',
-	'u_int', 'long',
-	'ulong', 'u_long',
-	'uint32_t', 'uint32',
-	'int32_t', 'int32',
-	'u32', 'i32',
-	'si32', 'ui32',
-	'fixed', 'float16',
-	'bool', 'boolean',
-	'boole32', 'void',
-	'handle', 'flong',
-	'dosdatetime', 'unixdatetime',
-	'time_t',
-
-	'64', '64bit',
-	'longlong', 'ulonglong',
-	'u_longlong', 'uint64_t',
-	'uint64', 'int64_t',
-	'int64', 'u64',
-	'i64', 'si64',
-	'ui64', 'void64',
-	'filetime', 'oledatetime',
-	'sqldatetime', 'javadatetime',
-
-	'float', 'double',
-
-	'encodedu32', 'encoded',
-
-	'bits', 'sb',
-	'ub', 'fb',
-]
-
 module.exports = grammar({
 	name: 'quickbms',
 
@@ -929,9 +866,9 @@ module.exports = grammar({
 			$._statement_end,
 		),
 
-		c_type_qualifier: $ => choice(...c_type_qualifiers),
+		c_type_qualifier: _ => choice(...c_type_qualifiers),
 
-		_c_identifier: $ => /[A-za-z_]\w*/,
+		_c_identifier: _ => /[A-za-z_]\w*/,
 
 		c_type: $ => $._c_identifier,
 
