@@ -270,6 +270,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "file_crypt_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "call_dll_statement"
         },
         {
@@ -1971,6 +1975,69 @@
         {
           "type": "FIELD",
           "name": "bytes",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_variable"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "offset",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_variable"
+                  }
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "FIELD",
+                      "name": "file_number",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "_variable"
+                      }
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_end"
+        }
+      ]
+    },
+    "file_crypt_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[fF][iI][lL][eE][cC][rR][yY][pP][tT]"
+          },
+          "named": false,
+          "value": "filecrypt"
+        },
+        {
+          "type": "FIELD",
+          "name": "toggle",
           "content": {
             "type": "SYMBOL",
             "name": "_variable"

@@ -14,6 +14,7 @@
 	"open"
 	"filexor"
 	"filerot"
+	"filecrypt"
 	"calldll"
 
 	"set"
@@ -116,7 +117,6 @@
 	; "StrCReplace"
 	; "StrEResizeC"
 	; "SeperateHeader"
-	; "FileCrypt"
 	; "Debug"
 	; "CRCHash"
 	; "MessageBox"

@@ -1149,6 +1149,88 @@
     }
   },
   {
+    "type": "file_crypt_statement",
+    "named": true,
+    "fields": {
+      "file_number": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "offset": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "toggle": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "file_rot_statement",
     "named": true,
     "fields": {
@@ -4154,6 +4236,10 @@
           "named": true
         },
         {
+          "type": "file_crypt_statement",
+          "named": true
+        },
+        {
           "type": "file_rot_statement",
           "named": true
         },
@@ -5008,6 +5094,10 @@
   },
   {
     "type": "extension",
+    "named": false
+  },
+  {
+    "type": "filecrypt",
     "named": false
   },
   {
