@@ -266,6 +266,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "file_rot_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "call_dll_statement"
         },
         {
@@ -1900,6 +1904,69 @@
           },
           "named": false,
           "value": "filexor"
+        },
+        {
+          "type": "FIELD",
+          "name": "bytes",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_variable"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "offset",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_variable"
+                  }
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "FIELD",
+                      "name": "file_number",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "_variable"
+                      }
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_end"
+        }
+      ]
+    },
+    "file_rot_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[fF][iI][lL][eE][rR][oO][tT]"
+          },
+          "named": false,
+          "value": "filerot"
         },
         {
           "type": "FIELD",

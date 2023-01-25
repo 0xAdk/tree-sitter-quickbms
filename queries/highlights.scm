@@ -13,6 +13,7 @@
 
 	"open"
 	"filexor"
+	"filerot"
 	"calldll"
 
 	"set"

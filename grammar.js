@@ -148,6 +148,7 @@ module.exports = grammar({
 
 			$.open_statement,
 			$.file_xor_statement,
+			$.file_rot_statement,
 			$.call_dll_statement,
 
 			$.save_pos_statement,
@@ -468,6 +469,16 @@ module.exports = grammar({
 
 		file_xor_statement: $ => seq(
 			case_insensitive('filexor'),
+			field('bytes', $._variable),
+			optional(seq(
+				field('offset', $._variable),
+				optional(field('file_number', $._variable)),
+			)),
+			$._statement_end,
+		),
+
+		file_rot_statement: $ => seq(
+			case_insensitive('filerot'),
 			field('bytes', $._variable),
 			optional(seq(
 				field('offset', $._variable),
