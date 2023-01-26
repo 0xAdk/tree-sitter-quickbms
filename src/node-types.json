@@ -2452,6 +2452,66 @@
     }
   },
   {
+    "type": "imp_type_statement",
+    "named": true,
+    "fields": {
+      "mode": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "variable": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "label_statement",
     "named": true,
     "fields": {
@@ -4686,6 +4746,10 @@
           "named": true
         },
         {
+          "type": "imp_type_statement",
+          "named": true
+        },
+        {
           "type": "label_statement",
           "named": true
         },
@@ -5600,6 +5664,10 @@
   },
   {
     "type": "if",
+    "named": false
+  },
+  {
+    "type": "imptype",
     "named": false
   },
   {

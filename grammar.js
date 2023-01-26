@@ -77,6 +77,8 @@ module.exports = grammar({
 			$.version_statement,
 			$.exit_statement,
 
+			$.imp_type_statement,
+
 			$.string_statement,
 			$.strlen_statement,
 			$.math_statement,
@@ -157,6 +159,13 @@ module.exports = grammar({
 				case_insensitive('exit'),
 				case_insensitive('exitifnofilesopen'),
 			),
+			$._statement_end,
+		),
+
+		imp_type_statement: $ => seq(
+			case_insensitive('imptype'),
+			field('mode', $._variable),
+			repeat(field('variable', $._variable)),
 			$._statement_end,
 		),
 

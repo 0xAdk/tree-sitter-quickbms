@@ -5,6 +5,8 @@
 	"exit"
 	"exitifnofilesopen"
 
+	"imptype"
+
 	"string"
 	"strlen"
 	"math"
@@ -97,7 +99,6 @@
 	; "fread"
 	; "fwrite"
 	; "fseek"
-	; "ImpType"
 	; "ExtractFile"
 	; "Add"
 	; "Inc"

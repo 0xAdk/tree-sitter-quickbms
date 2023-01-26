@@ -238,6 +238,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "imp_type_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "string_statement"
         },
         {
@@ -549,6 +553,43 @@
               "value": "exitifnofilesopen"
             }
           ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_end"
+        }
+      ]
+    },
+    "imp_type_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[iI][mM][pP][tT][yY][pP][eE]"
+          },
+          "named": false,
+          "value": "imptype"
+        },
+        {
+          "type": "FIELD",
+          "name": "mode",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_variable"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "FIELD",
+            "name": "variable",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_variable"
+            }
+          }
         },
         {
           "type": "SYMBOL",
