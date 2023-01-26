@@ -298,6 +298,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "_reverse_statements"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_magic_check_statements"
         },
         {
@@ -1333,6 +1337,191 @@
         {
           "type": "SYMBOL",
           "name": "_statement_end"
+        }
+      ]
+    },
+    "reverse_short_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "[rR][eE][vV][eE][rR][sS][eE][sS][hH][oO][rR][tT]"
+              },
+              "named": false,
+              "value": "reverseshort"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "[fF][lL][iI][pP][sS][hH][oO][rR][tT]"
+              },
+              "named": false,
+              "value": "flipshort"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_variable"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "endian",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_variable"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_end"
+        }
+      ]
+    },
+    "reverse_long_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "[rR][eE][vV][eE][rR][sS][eE][lL][oO][nN][gG]"
+              },
+              "named": false,
+              "value": "reverselong"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "[fF][lL][iI][pP][lL][oO][nN][gG]"
+              },
+              "named": false,
+              "value": "fliplong"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_variable"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "endian",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_variable"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_end"
+        }
+      ]
+    },
+    "reverse_long_long_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "[rR][eE][vV][eE][rR][sS][eE][lL][oO][nN][gG][lL][oO][nN][gG]"
+              },
+              "named": false,
+              "value": "reverselonglong"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "[fF][lL][iI][pP][lL][oO][nN][gG][lL][oO][nN][gG]"
+              },
+              "named": false,
+              "value": "fliplonglong"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_variable"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "endian",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_variable"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_end"
+        }
+      ]
+    },
+    "_reverse_statements": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "reverse_short_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "reverse_long_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "reverse_long_long_statement"
         }
       ]
     },

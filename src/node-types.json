@@ -3824,6 +3824,186 @@
     }
   },
   {
+    "type": "reverse_long_long_statement",
+    "named": true,
+    "fields": {
+      "endian": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "reverse_long_statement",
+    "named": true,
+    "fields": {
+      "endian": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "reverse_short_statement",
+    "named": true,
+    "fields": {
+      "endian": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "s_log_statement",
     "named": true,
     "fields": {
@@ -4563,6 +4743,18 @@
         },
         {
           "type": "put_var_chr_statement",
+          "named": true
+        },
+        {
+          "type": "reverse_long_long_statement",
+          "named": true
+        },
+        {
+          "type": "reverse_long_statement",
+          "named": true
+        },
+        {
+          "type": "reverse_short_statement",
           "named": true
         },
         {
@@ -5339,6 +5531,18 @@
     "named": false
   },
   {
+    "type": "fliplong",
+    "named": false
+  },
+  {
+    "type": "fliplonglong",
+    "named": false
+  },
+  {
+    "type": "flipshort",
+    "named": false
+  },
+  {
     "type": "for",
     "named": false
   },
@@ -5508,6 +5712,18 @@
   },
   {
     "type": "read-only",
+    "named": false
+  },
+  {
+    "type": "reverselong",
+    "named": false
+  },
+  {
+    "type": "reverselonglong",
+    "named": false
+  },
+  {
+    "type": "reverseshort",
     "named": false
   },
   {

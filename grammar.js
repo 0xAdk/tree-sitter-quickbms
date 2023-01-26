@@ -95,6 +95,7 @@ module.exports = grammar({
 			$.set_statement,
 
 			$.endian_statement,
+			$._reverse_statements,
 			$._magic_check_statements,
 			$._get_statements,
 			$._put_statements,
@@ -301,6 +302,42 @@ module.exports = grammar({
 			field('type', $._variable),
 			optional(field('name', $._variable)),
 			$._statement_end,
+		),
+
+		reverse_short_statement: $ => seq(
+			choice(
+				case_insensitive('reverseshort'),
+				case_insensitive('flipshort'),
+			),
+			field('name', $._variable),
+			optional(field('endian', $._variable)),
+			$._statement_end,
+		),
+
+		reverse_long_statement: $ => seq(
+			choice(
+				case_insensitive('reverselong'),
+				case_insensitive('fliplong'),
+			),
+			field('name', $._variable),
+			optional(field('endian', $._variable)),
+			$._statement_end,
+		),
+
+		reverse_long_long_statement: $ => seq(
+			choice(
+				case_insensitive('reverselonglong'),
+				case_insensitive('fliplonglong'),
+			),
+			field('name', $._variable),
+			optional(field('endian', $._variable)),
+			$._statement_end,
+		),
+
+		_reverse_statements: $ => choice(
+			$.reverse_short_statement,
+			$.reverse_long_statement,
+			$.reverse_long_long_statement,
 		),
 
 		id_string_statement: $ => seq(
