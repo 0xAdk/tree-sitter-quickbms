@@ -614,12 +614,7 @@ module.exports = grammar({
 			field('offset', $._variable),
 			optional(seq(
 				field('file_number', $._variable),
-
-				optional(field('type', choice(
-					case_insensitive('SOF'), case_insensitive('SEEK_SET'),
-					case_insensitive('SEEK_CUR'),
-					case_insensitive('EOF'), case_insensitive('SEEK_END'),
-				)))
+				optional(field('type', $.identifier)),
 			)),
 			$._statement_end,
 		),

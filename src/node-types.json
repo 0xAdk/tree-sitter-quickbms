@@ -2233,24 +2233,8 @@
         "required": false,
         "types": [
           {
-            "type": "EOF",
-            "named": false
-          },
-          {
-            "type": "SEEK_CUR",
-            "named": false
-          },
-          {
-            "type": "SEEK_END",
-            "named": false
-          },
-          {
-            "type": "SEEK_SET",
-            "named": false
-          },
-          {
-            "type": "SOF",
-            "named": false
+            "type": "identifier",
+            "named": true
           }
         ]
       }
@@ -5430,26 +5414,6 @@
   },
   {
     "type": ">>",
-    "named": false
-  },
-  {
-    "type": "EOF",
-    "named": false
-  },
-  {
-    "type": "SEEK_CUR",
-    "named": false
-  },
-  {
-    "type": "SEEK_END",
-    "named": false
-  },
-  {
-    "type": "SEEK_SET",
-    "named": false
-  },
-  {
-    "type": "SOF",
     "named": false
   },
   {

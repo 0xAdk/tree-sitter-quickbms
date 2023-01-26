@@ -34,4 +34,5 @@ goto -4 0 SEEK_CUR
 (statement_list
 	(goto_statement
 		offset: (number)
-		file_number: (number)))
+		file_number: (number)
+		type: (identifier)))

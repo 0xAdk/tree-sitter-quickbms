@@ -3058,54 +3058,8 @@
                       "type": "FIELD",
                       "name": "type",
                       "content": {
-                        "type": "CHOICE",
-                        "members": [
-                          {
-                            "type": "ALIAS",
-                            "content": {
-                              "type": "PATTERN",
-                              "value": "SOF"
-                            },
-                            "named": false,
-                            "value": "SOF"
-                          },
-                          {
-                            "type": "ALIAS",
-                            "content": {
-                              "type": "PATTERN",
-                              "value": "SEEK_SET"
-                            },
-                            "named": false,
-                            "value": "SEEK_SET"
-                          },
-                          {
-                            "type": "ALIAS",
-                            "content": {
-                              "type": "PATTERN",
-                              "value": "SEEK_CUR"
-                            },
-                            "named": false,
-                            "value": "SEEK_CUR"
-                          },
-                          {
-                            "type": "ALIAS",
-                            "content": {
-                              "type": "PATTERN",
-                              "value": "EOF"
-                            },
-                            "named": false,
-                            "value": "EOF"
-                          },
-                          {
-                            "type": "ALIAS",
-                            "content": {
-                              "type": "PATTERN",
-                              "value": "SEEK_END"
-                            },
-                            "named": false,
-                            "value": "SEEK_END"
-                          }
-                        ]
+                        "type": "SYMBOL",
+                        "name": "identifier"
                       }
                     },
                     {
