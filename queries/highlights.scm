@@ -1,6 +1,6 @@
 [
 	"quickbmsver"
-
+	"include"
 	"cleanexit"
 	"exit"
 	"exitifnofilesopen"
@@ -124,7 +124,6 @@
 	; "CRCHash"
 	; "MessageBox"
 	; "SearchArray"
-	; "include"
 	; "Game"
 	; "NOP"
 	; "template"

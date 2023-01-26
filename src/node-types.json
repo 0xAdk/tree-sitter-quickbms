@@ -2512,6 +2512,44 @@
     }
   },
   {
+    "type": "include_statement",
+    "named": true,
+    "fields": {
+      "filename": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "character",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "label_statement",
     "named": true,
     "fields": {
@@ -4750,6 +4788,10 @@
           "named": true
         },
         {
+          "type": "include_statement",
+          "named": true
+        },
+        {
           "type": "label_statement",
           "named": true
         },
@@ -5668,6 +5710,10 @@
   },
   {
     "type": "imptype",
+    "named": false
+  },
+  {
+    "type": "include",
     "named": false
   },
   {

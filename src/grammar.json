@@ -234,6 +234,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "include_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "exit_statement"
         },
         {
@@ -512,6 +516,32 @@
         {
           "type": "SYMBOL",
           "name": "_variable"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_statement_end"
+        }
+      ]
+    },
+    "include_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[iI][nN][cC][lL][uU][dD][eE]"
+          },
+          "named": false,
+          "value": "include"
+        },
+        {
+          "type": "FIELD",
+          "name": "filename",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_variable"
+          }
         },
         {
           "type": "SYMBOL",

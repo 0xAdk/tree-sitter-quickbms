@@ -75,6 +75,7 @@ module.exports = grammar({
 			$.ignored,
 
 			$.version_statement,
+			$.include_statement,
 			$.exit_statement,
 
 			$.imp_type_statement,
@@ -150,6 +151,12 @@ module.exports = grammar({
 		version_statement: $ => seq(
 			case_insensitive('quickbmsver'),
 			$._variable,
+			$._statement_end,
+		),
+
+		include_statement: $ => seq(
+			case_insensitive('include'),
+			field('filename', $._variable),
 			$._statement_end,
 		),
 
