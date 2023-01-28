@@ -751,10 +751,7 @@ module.exports = grammar({
 
 		prev_statement: $ => seq(
 			case_insensitive('prev'),
-			optional(seq(
-				field('name', $._variable),
-				optional(field('update', $.op_value)),
-			)),
+			optional(field('name', $.identifier)),
 			$._statement_end,
 		),
 
